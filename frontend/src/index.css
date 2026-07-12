@@ -1,0 +1,69 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Glassmorphism utility */
+@layer utilities {
+  .glass {
+    @apply bg-white bg-opacity-20 backdrop-blur-md rounded-xl shadow-xl;
+  }
+}
+
+/* Simple Mode - applied via .simple-mode class on <html> */
+.simple-mode label,
+.simple-mode .text-xs,
+.simple-mode .text-sm {
+  font-size: 0.85rem !important;
+}
+.simple-mode input,
+.simple-mode select,
+.simple-mode textarea {
+  font-size: 1rem !important;
+  min-height: 56px;
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+}
+.simple-mode button {
+  font-size: 0.95rem !important;
+  min-height: 48px;
+}
+.simple-mode .tracking-wider {
+  letter-spacing: 0.05em !important;
+}
+
+/* Better touch targets */
+@media (pointer: coarse) {
+  button, a, input, select, textarea {
+    min-height: 44px;
+  }
+}
+
+/* Low Literacy Mode — hide technical jargon */
+.simple-mode .hide-lowlit {
+  display: none !important;
+}
+.simple-mode .tech-label {
+  font-size: 0 !important;
+}
+.simple-mode .tech-label::after {
+  font-size: 0.75rem !important;
+  content: attr(data-simple);
+}
+.simple-mode .badge-soon {
+  font-size: 0.6rem !important;
+  padding: 1px 4px !important;
+}
+.simple-mode button, .simple-mode .btn {
+  min-height: 52px !important;
+  font-size: 1rem !important;
+  padding-top: 14px !important;
+  padding-bottom: 14px !important;
+}
+.simple-mode .grid-cols-3.gap-3 button {
+  min-height: 64px !important;
+}
+.simple-mode .grid-cols-2.gap-2 button,
+.simple-mode .grid-cols-3.gap-2 button {
+  min-height: 72px !important;
+}

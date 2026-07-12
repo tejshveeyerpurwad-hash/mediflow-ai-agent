@@ -1,0 +1,47 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Source code
+*.js         text eol=lf
+*.jsx        text eol=lf
+*.ts         text eol=lf
+*.tsx        text eol=lf
+*.py         text eol=lf
+*.css        text eol=lf
+*.html       text eol=lf
+*.json       text eol=lf
+*.yml        text eol=lf
+*.yaml       text eol=lf
+*.md         text eol=lf
+*.sh         text eol=lf
+*.bat        text eol=lf
+*.env        text eol=lf
+*.env.example text eol=lf
+
+# Binary / generated files
+*.png        binary
+*.jpg        binary
+*.jpeg       binary
+*.gif        binary
+*.ico        binary
+*.svg        text eol=lf
+*.woff       binary
+*.woff2      binary
+*.ttf        binary
+*.eot        binary
+*.sqlite     binary
+*.db         binary
+*.lock       text eol=lf diff=lock
+
+# Diff readability
+*.json       diff=json
+*.js         diff=javascript
+*.ts         diff=typescript
+*.py         diff=python
+*.css        diff=css
+*.md         diff=markdown
+
+# GitHub linguist overrides
+.gitattributes   linguist-generated=false
+CHANGELOG.md     linguist-generated=true
+docs/archive/    linguist-generated=true

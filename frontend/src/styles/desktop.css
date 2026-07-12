@@ -1,0 +1,32 @@
+@media (min-width: 1024px) {
+  .max-w-7xl,
+  .max-w-6xl,
+  .max-w-5xl,
+  .max-w-4xl,
+  .max-w-\[85rem\],
+  .max-w-\[90rem\] {
+    max-width: 92%;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    width: 18px;
+    height: 18px;
+  }
+
+  th, td {
+    padding: 12px 16px;
+    font-size: 15px;
+  }
+
+  th {
+    font-size: 13px;
+    letter-spacing: 0.05em;
+  }
+}
