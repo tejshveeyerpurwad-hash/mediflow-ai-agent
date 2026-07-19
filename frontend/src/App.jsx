@@ -37,6 +37,15 @@ const NGOAlertsPage          = lazy(() => import('./pages/NGOAlertsPage'));
 const NGOPatientRegistryPage = lazy(() => import('./pages/NGOPatientRegistryPage'));
 const NGORecordCreationPage  = lazy(() => import('./pages/NGORecordCreationPage'));
 
+// MediFlow AI Multi-Agent Pages
+const PatientTimeline        = lazy(() => import('./pages/PatientTimeline'));
+const MedicalRecordsPage     = lazy(() => import('./pages/MedicalRecordsPage'));
+const CareCoordinationPage   = lazy(() => import('./pages/CareCoordinationPage'));
+const MedicationSafetyPage   = lazy(() => import('./pages/MedicationSafetyPage'));
+const HospitalRecommendPage  = lazy(() => import('./pages/HospitalRecommendPage'));
+const AppointmentPage        = lazy(() => import('./pages/AppointmentPage'));
+const DoctorDashboard        = lazy(() => import('./pages/DoctorDashboard'));
+
 // Components
 import Footer from './components/Footer';
 import OfflineToast from './components/OfflineToast';
@@ -263,6 +272,43 @@ export default function App() {
                   <DesktopOnlyWrapper dashboardName="District Simulation & Observability Monitor">
                     <LayoutWrapper><ErrorBoundary><MonitoringDashboard /></ErrorBoundary></LayoutWrapper>
                   </DesktopOnlyWrapper>
+                </ProtectedRoute>
+              } />
+
+              {/* MEDIFLOW AI MULTI-AGENT PAGES */}
+              <Route path="/timeline" element={
+                <ProtectedRoute>
+                  <ErrorBoundary><PatientTimeline /></ErrorBoundary>
+                </ProtectedRoute>
+              } />
+              <Route path="/records" element={
+                <ProtectedRoute>
+                  <ErrorBoundary><MedicalRecordsPage /></ErrorBoundary>
+                </ProtectedRoute>
+              } />
+              <Route path="/care-coordination" element={
+                <ProtectedRoute allowedRole={["ngo", "admin"]}>
+                  <ErrorBoundary><CareCoordinationPage /></ErrorBoundary>
+                </ProtectedRoute>
+              } />
+              <Route path="/medication-safety" element={
+                <ProtectedRoute>
+                  <ErrorBoundary><MedicationSafetyPage /></ErrorBoundary>
+                </ProtectedRoute>
+              } />
+              <Route path="/hospital-recommend" element={
+                <ProtectedRoute>
+                  <ErrorBoundary><HospitalRecommendPage /></ErrorBoundary>
+                </ProtectedRoute>
+              } />
+              <Route path="/appointments" element={
+                <ProtectedRoute>
+                  <ErrorBoundary><AppointmentPage /></ErrorBoundary>
+                </ProtectedRoute>
+              } />
+              <Route path="/doctor-copilot" element={
+                <ProtectedRoute allowedRole={["ngo", "admin"]}>
+                  <ErrorBoundary><DoctorDashboard /></ErrorBoundary>
                 </ProtectedRoute>
               } />
               <Route path="*" element={<Navigate to="/" replace />} />

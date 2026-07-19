@@ -5,7 +5,8 @@ import { useLanguage } from '../context/LanguageContext';
 import {
   HeartPulse, User, LogOut, Menu, X, Shield,
   Activity, Truck, Scan, Home, Globe, Droplets, Mic, BookOpen,
-  WifiOff, Wifi, Download, Share2, QrCode, Copy, Check, Sparkles, Plus
+  WifiOff, Wifi, Download, Share2, QrCode, Copy, Check, Sparkles, Plus,
+  Calendar, FileText, Pill, MapPin, ClipboardList
 } from 'lucide-react';
 import { QRCodeCanvas } from 'qrcode.react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -96,17 +97,29 @@ export default function Navbar() {
 
   const villagerLinks = (t) => [
     { name: t.nav?.home || 'Home', path: '/villager', icon: Home },
-    { name: t.nav?.schemes || 'Schemes 📋', path: '/schemes', icon: BookOpen },
+    { name: t.nav?.schemes || 'Schemes', path: '/schemes', icon: BookOpen },
+    { name: 'Timeline', path: '/timeline', icon: Calendar },
+    { name: 'Records', path: '/records', icon: FileText },
     { name: t.nav?.check_symptoms || 'Symptom Check', path: '/symptoms', icon: Activity },
+    { name: 'Medication', path: '/medication-safety', icon: Pill },
     { name: t.nav?.skin_care || 'Skin Scan', path: '/skin-disease', icon: Scan },
+    { name: 'Hospitals', path: '/hospital-recommend', icon: MapPin },
     { name: t.nav?.ambulance || 'Ambulance', path: '/ambulance', icon: Truck },
+    { name: 'Appointments', path: '/appointments', icon: Calendar },
     { name: t.nav?.menstrual_health || 'Menstrual', path: '/menstrual-health', icon: Droplets },
   ];
 
   const ngoLinks = (t) => [
     { name: t.nav?.home || 'Dashboard', path: '/ngo', icon: Home },
+    { name: 'Timeline', path: '/timeline', icon: Calendar },
+    { name: 'Records', path: '/records', icon: FileText },
+    { name: 'Care Coord.', path: '/care-coordination', icon: ClipboardList },
+    { name: 'Doctor AI', path: '/doctor-copilot', icon: Stethoscope },
     { name: t.ngo?.maternal_care || 'Maternal Care', path: '/ngo/maternal', icon: HeartPulse },
     { name: t.ngo?.child_nutrition || 'Child Nutrition', path: '/ngo/child-nutrition', icon: Activity },
+    { name: 'Medication', path: '/medication-safety', icon: Pill },
+    { name: 'Hospitals', path: '/hospital-recommend', icon: MapPin },
+    { name: 'Appointments', path: '/appointments', icon: Calendar },
   ];
 
   const isActive = (path) => location.pathname === path;
@@ -126,10 +139,10 @@ export default function Navbar() {
             </div>
             <div className="flex flex-col leading-none">
               <span className="text-sm font-black text-slate-900 tracking-tighter uppercase group-hover:text-emerald-700 transition-colors">
-                SwasthAI <span className="text-emerald-600 font-medium hidden xs:inline">Guardian</span>
+                MediFlow <span className="text-emerald-600 font-medium hidden xs:inline">AI</span>
               </span>
               <span className="hidden sm:block text-[8px] sm:text-[9px] font-black text-slate-400 uppercase tracking-widest">
-                Rural Health Network
+                AI Healthcare Navigation
               </span>
             </div>
           </div>
@@ -396,11 +409,18 @@ export default function Navbar() {
           {(user.role === 'villager'
             ? [
               { name: t.nav?.home || 'Home', path: '/villager', icon: Home },
+              { name: 'Timeline', path: '/timeline', icon: Calendar },
               { name: t.nav?.check_symptoms?.split(' ')[0] || 'Symptoms', path: '/symptoms', icon: Activity },
-              { name: t.nav?.skin_care?.split(' ')[0] || 'Skin Scan', path: '/skin-disease', icon: Scan },
-              { name: t.nav?.ambulance || 'Ambulance', path: '/ambulance', icon: Truck },
+              { name: 'Hospitals', path: '/hospital-recommend', icon: MapPin },
+              { name: 'Appts', path: '/appointments', icon: Calendar },
             ]
-            : ngoLinks(t)
+            : [
+              { name: 'Dashboard', path: '/ngo', icon: Home },
+              { name: 'Timeline', path: '/timeline', icon: Calendar },
+              { name: 'Doctor AI', path: '/doctor-copilot', icon: Stethoscope },
+              { name: 'Medication', path: '/medication-safety', icon: Pill },
+              { name: 'Appts', path: '/appointments', icon: Calendar },
+            ]
           ).map(link => (
             <Link
               key={link.path}
@@ -452,8 +472,8 @@ export default function Navbar() {
                     <QrCode className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-slate-900 uppercase tracking-tighter">{t.nav?.share_title || 'Share SwasthAI'}</h3>
-                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{t.nav?.share_subtitle || 'Village Health QR Code'}</p>
+                    <h3 className="text-xl font-black text-slate-900 uppercase tracking-tighter">{t.nav?.share_title || 'Share MediFlow AI'}</h3>
+                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{t.nav?.share_subtitle || 'AI Healthcare Navigation'}</p>
                   </div>
                 </div>
 

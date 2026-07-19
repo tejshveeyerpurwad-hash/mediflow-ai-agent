@@ -827,19 +827,119 @@ async def get_seasonal_risk(villageId: str = "v101", month: int = None):
         "timestamp": datetime.datetime.now().isoformat()
     }
 
+# ── Multi-Agent Orchestrator ─────────────────────────────────────────────────────
+from agents.orchestrator import get_orchestrator
+
+_orchestrator = None
+
+def _get_orch():
+    global _orchestrator
+    if _orchestrator is None:
+        _orchestrator = get_orchestrator()
+    return _orchestrator
+
+class AgentRequest(BaseModel):
+    agent: str
+    params: dict = {}
+
+@app.post("/api/agents/execute")
+async def execute_agent(req: AgentRequest):
+    orch = _get_orch()
+    result = orch.route(req.agent, **req.params)
+    return result
+
+@app.get("/api/agents/list")
+async def list_agents():
+    orch = _get_orch()
+    return orch.list_agents()
+
+@app.post("/api/agents/ocr")
+async def agent_ocr(file: UploadFile = File(...)):
+    contents = await file.read()
+    orch = _get_orch()
+    result = orch.route("ocr", image_data=contents, filename=file.filename)
+    return result
+
+@app.post("/api/agents/medical-summary")
+async def agent_summary(data: SymptomInput):
+    orch = _get_orch()
+    result = orch.route("medical_summary", record=data.symptoms)
+    return result
+
+@app.post("/api/agents/medication-check")
+async def agent_medication_check(data: dict = None):
+    if data is None:
+        data = {}
+    orch = _get_orch()
+    result = orch.route("medication_safety", **data)
+    return result
+
+@app.post("/api/agents/patient-intake")
+async def agent_patient_intake(data: SymptomInput):
+    orch = _get_orch()
+    result = orch.route("patient_intake", symptoms=data.symptoms)
+    return result
+
+@app.post("/api/agents/doctor-copilot")
+async def agent_doctor_copilot(data: dict = None):
+    if data is None:
+        data = {}
+    orch = _get_orch()
+    result = orch.route("doctor_copilot", **data)
+    return result
+
+@app.post("/api/agents/appointment")
+async def agent_appointment(data: dict = None):
+    if data is None:
+        data = {}
+    orch = _get_orch()
+    result = orch.route("appointment", **data)
+    return result
+
+@app.post("/api/agents/hospital-recommendation")
+async def agent_hospital_rec(data: dict = None):
+    if data is None:
+        data = {}
+    orch = _get_orch()
+    result = orch.route("hospital_recommendation", **data)
+    return result
+
+@app.post("/api/agents/emergency")
+async def agent_emergency(data: dict = None):
+    if data is None:
+        data = {}
+    orch = _get_orch()
+    result = orch.route("emergency", **data)
+    return result
+
+@app.post("/api/agents/follow-up")
+async def agent_follow_up(data: dict = None):
+    if data is None:
+        data = {}
+    orch = _get_orch()
+    result = orch.route("follow_up", **data)
+    return result
+
 @app.get("/")
 def read_root():
-    return {"status": "SwasthAI AI Node Online", "health_check": "/health"}
+    return {"status": "MediFlow AI Online", "health_check": "/health"}
 
 @app.get("/health")
 def health_check():
+    orch = _get_orch()
     return {
-        "status": "SwasthAI AI Node Online",
+        "status": "MediFlow AI Online",
         "model_loaded": disease_pipeline is not None,
         "model_fallback_state": "primary_model_loaded" if disease_pipeline is not None else "offline_rule_fallback",
         "guardrail_status": "active_conservative_triage_no_diagnosis_claim",
         "active_modules": 6,
         "modules": ["disease_prediction", "pregnancy_risk", "malnutrition", "skin_analysis", "rag_sakhi", "agentic_outbreak_monitor"],
+        "agents": {
+            "orchestrator": "active",
+            "provider": orch.get_provider_name(),
+            "available_agents": list(orch.agents.keys()),
+            "agent_count": len(orch.agents),
+        },
         "disease_classes": list(disease_pipeline.classes_) if disease_pipeline else [],
         "model_accuracy": {
             "symptomnet_dl":   "64.6% (101 diseases, 7 languages)",

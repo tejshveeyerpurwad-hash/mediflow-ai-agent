@@ -24,6 +24,7 @@ import villagerRouter from './routes/villager.js';
 import ngoRouter from './routes/ngo.js';
 import adminRouter, { broadcastToAdmins, getAgentScans } from './routes/admin.js';
 import webhookRouter from './routes/webhooks.js';
+import agentsRouter from './routes/agents.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -322,6 +323,7 @@ if (isProduction && cluster.isPrimary && maxWorkers > 1) {
   app.use('/api/ngo', ngoRouter);
   app.use('/api/admin', adminRouter);
   app.use('/api/webhooks', webhookRouter);
+  app.use('/api/agents', agentsRouter);
   app.use('/api', villagerRouter);
 
   // ── REQUEST WORKFLOW — DEPRECATED ROUTES ──────────────────────────────────
