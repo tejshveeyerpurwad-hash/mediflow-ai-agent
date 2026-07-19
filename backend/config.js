@@ -35,8 +35,8 @@ export function getAadhaarSalt() {
 }
 
 export function isDemoOtpAllowed(otp) {
-  if (otp !== '1234') return false;
-  return !isProduction || process.env.ALLOW_DEMO_OTP === 'true';
+  if (process.env.NODE_ENV === 'production') return false;
+  return otp === '1234';
 }
 
 export function getClusterWorkerCount() {

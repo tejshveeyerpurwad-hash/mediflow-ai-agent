@@ -103,8 +103,7 @@ if (isProduction && cluster.isPrimary && maxWorkers > 1) {
     },
     credentials: true,
   }));
-  app.use('/api/skin-log', express.json({ limit: '5mb' })); // Support larger base64 payloads/pixel statistics for skin inspections
-  app.use(express.json({ limit: '10kb' })); // JSON-only APIs; general endpoints limited to 10kb to prevent DOS
+  app.use(express.json({ limit: '1mb' }));
 
   const ragTraces = [];
 
@@ -609,21 +608,25 @@ if (isProduction && cluster.isPrimary && maxWorkers > 1) {
   });
 
   // ── WATCHDOG MONITORING LOOP ──────────────────────────────────────────
-  let lastAiStatus = 'online';
-  let lastAgentStatus = 'online';
-
   const monitorWatchdog = async () => {
-    // Force online state for evaluation stability on cloud host fallbacks
-    let currentAiStatus = 'online';
-    let currentAgentStatus = 'online';
-    
-    if (app.locals.serviceAlerts) {
-      delete app.locals.serviceAlerts['ai-service'];
-      delete app.locals.serviceAlerts['outbreak-agent'];
+    try {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 5000);
+      const aiRes = await fetch(`${AI_SERVICE_URL}/health`, { signal: controller.signal });
+      clearTimeout(timeout);
+      if (aiRes.ok && app.locals.serviceAlerts) {
+        delete app.locals.serviceAlerts['ai-service'];
+      } else if (!aiRes.ok && app.locals.serviceAlerts) {
+        app.locals.serviceAlerts['ai-service'] = `HTTP ${aiRes.status}`;
+      }
+    } catch (err) {
+      if (app.locals.serviceAlerts) {
+        app.locals.serviceAlerts['ai-service'] = err.name === 'AbortError' ? 'timeout' : 'unreachable';
+      }
+      console.warn('[WATCHDOG] AI service health check failed:', err.message);
     }
   };
 
-  // Run watchdog every 30 seconds
   const watchdogInterval = setInterval(monitorWatchdog, 30000);
 
   app.locals.wss = wss;
