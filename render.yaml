@@ -1,46 +1,54 @@
 services:
-  # 1. Unified Node.js backend + built React frontend (production bundle)
+  # 1. Node.js Backend API (Express)
   - type: web
-    name: swasthai-guardian
+    name: mediflow-backend
     runtime: node
     plan: free
-    buildCommand: npm run build
-    startCommand: npm start
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && node server.js
     envVars:
       - key: NODE_VERSION
-        value: 20.14.0
+        value: 22.19.0
       - key: NODE_OPTIONS
         value: --max-old-space-size=400
       - key: NODE_ENV
         value: production
       - key: JWT_SECRET
         generateValue: true
+      - key: AADHAAR_SALT
+        generateValue: true
+      - key: AGENT_SECRET
+        generateValue: true
+      - key: ADMIN_PASSCODE
+        generateValue: true
       - key: DATA_DIR
         value: /data
-      - key: GROQ_API_KEY
-        sync: false # Set this in the Render Dashboard
+      - key: ALLOWED_ORIGINS
+        value: https://mediflow-ai.vercel.app,http://localhost:5173
       - key: AI_SERVICE_URL
         fromService:
           type: web
-          name: swasthai-ai-service
+          name: mediflow-ai-service
           property: host
+      - key: GROQ_API_KEY
+        sync: false
     disk:
       name: sqlite-data
       mountPath: /data
       sizeGB: 1
 
-  # 2. Python FastAPI AI service (RAG, deep learning, skin analysis, outbreak agent)
+  # 2. Python FastAPI AI Service
   - type: web
-    name: swasthai-ai-service
+    name: mediflow-ai-service
     runtime: docker
     plan: free
     dockerContext: ai-service
     dockerfilePath: ai-service/Dockerfile
     envVars:
       - key: GROQ_API_KEY
-        sync: false # Set this in the Render Dashboard
+        sync: false
       - key: BACKEND_URL
         fromService:
           type: web
-          name: swasthai-guardian
+          name: mediflow-backend
           property: host
