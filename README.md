@@ -1,27 +1,26 @@
 <div align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/logo.png">
-    <img alt="SwasthAI Guardian" src="assets/logo.png" width="100">
+    <img alt="MediFlow AI" src="assets/logo.png" width="100">
   </picture>
-  <h1>SwasthAI Guardian</h1>
-  <h3>Offline-First AI Healthcare Infrastructure for Rural India</h3>
-  <p>AI-powered disease surveillance, autonomous outbreak detection, and emergency coordination for 600M+ rural citizens — working fully without internet.</p>
+  <h1>MediFlow AI</h1>
+  <h3>AI Healthcare Navigation & Patient Care Coordination</h3>
+  <p>Multi-Agent AI system for intelligent healthcare navigation, referral coordination, and patient care orchestration — connecting rural communities to the right care at the right time.</p>
 </div>
 
 <p align="center">
-  <a href="https://github.com/tejshveeyerpurwad-hash/SwasthAI-Guardian"><img src="https://img.shields.io/github/stars/tejshveeyerpurwad-hash/SwasthAI-Guardian?style=flat-square&logo=github&label=Stars" alt="Stars"></a>
+  <a href="https://mediflow-ai-olive.vercel.app"><img src="https://img.shields.io/badge/Live_Demo-Vercel-000?style=flat-square&logo=vercel" alt="Live Demo"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-AGPLv3-8A2BE2?style=flat-square" alt="License"></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.0.0-000?style=flat-square" alt="Version"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-2.0.0-000?style=flat-square" alt="Version"></a>
   <a href="#"><img src="https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react" alt="React 18"></a>
-  <a href="#"><img src="https://img.shields.io/badge/Node-20-339933?style=flat-square&logo=node.js" alt="Node 20"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Node-22-339933?style=flat-square&logo=node.js" alt="Node 22"></a>
   <a href="#"><img src="https://img.shields.io/badge/FastAPI-0.110-009688?style=flat-square&logo=fastapi" alt="FastAPI"></a>
-  <a href="#"><img src="https://img.shields.io/badge/AWS-Aurora%20%7C%20DynamoDB-FF9900?style=flat-square&logo=amazonaws" alt="AWS"></a>
-  <a href="#"><img src="https://img.shields.io/badge/Offline_First-Enabled-00C853?style=flat-square" alt="Offline First"></a>
-  <a href="#"><img src="https://img.shields.io/badge/AI_Powered-SymptomNet-8A2BE2?style=flat-square" alt="AI Powered"></a>
+  <a href="#"><img src="https://img.shields.io/badge/AWS-Bedrock_%7C_Aurora_%7C_DynamoDB-FF9900?style=flat-square&logo=amazonaws" alt="AWS"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Multi-Agent_AI-8A2BE2?style=flat-square" alt="Multi-Agent AI"></a>
   <a href="#"><img src="https://img.shields.io/badge/PWA-Compatible-5A0FC8?style=flat-square&logo=pwa" alt="PWA"></a>
   <a href="#"><img src="https://img.shields.io/badge/Healthcare-Clinical_Grade-E91E63?style=flat-square" alt="Healthcare"></a>
   <a href="#"><img src="https://img.shields.io/badge/Multilingual-7_Languages-FF6F00?style=flat-square" alt="Multilingual"></a>
-  <a href="#"><img src="https://img.shields.io/badge/Deploy-Ready-0ABF53?style=flat-square" alt="Deploy"></a>
+  <a href="https://render.com/deploy?repo=https://github.com/tejshveeyerpurwad-hash/mediflow-ai-agent"><img src="https://img.shields.io/badge/Deploy_to_Render-46E3B7?style=flat-square&logo=render" alt="Deploy to Render"></a>
 </p>
 
 <p align="center">
@@ -381,6 +380,12 @@ npm run dev
 
 ### Production Deployment
 
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for complete step-by-step deployment instructions.
+
+The frontend is already deployed on Vercel: **https://mediflow-ai-olive.vercel.app**
+
+**One-click Render deployment:** [![Deploy to Render](https://img.shields.io/badge/Deploy_to_Render-46E3B7?style=flat-square&logo=render)](https://render.com/deploy?repo=https://github.com/tejshveeyerpurwad-hash/mediflow-ai-agent)
+
 | Component | Provider | Configuration | Key Variables |
 |-----------|----------|--------------|---------------|
 | **Frontend** | Vercel | `frontend/` directory, Vite build | `VITE_API_URL` |
@@ -407,7 +412,7 @@ AWS_SECRET_ACCESS_KEY=<iam-secret>
 DATABASE_URL=postgresql://user:pass@host:5432/swasthai
 
 # Optional
-ALLOWED_ORIGINS=http://localhost:5173
+ALLOWED_ORIGINS=http://localhost:5173,https://mediflow-ai-olive.vercel.app
 ENABLE_DEEP_MODEL=true   # requires ~500MB RAM
 NODE_CLUSTER_WORKERS=1   # increase for multi-core hosts
 ```
@@ -425,7 +430,7 @@ NODE_CLUSTER_WORKERS=1   # increase for multi-core hosts
 - [ ] Deploy Frontend (Vercel) with `VITE_API_URL` pointing to backend
 - [ ] `ALLOW_DEMO_OTP` **must not** be set in production
 
-> **Comprehensive production guide** with step-by-step AWS, Render, Vercel, and Docker instructions in [docs/DEPLOYMENT_GUIDE.md](docs/DEPLOYMENT_GUIDE.md).
+> **Comprehensive production guide** with step-by-step AWS, Render, Vercel, and Docker instructions in [DEPLOYMENT.md](DEPLOYMENT.md).
 
 ---
 

@@ -24,7 +24,7 @@ services:
       - key: DATA_DIR
         value: /data
       - key: ALLOWED_ORIGINS
-        value: https://mediflow-ai.vercel.app,http://localhost:5173
+        value: https://mediflow-7h975vrll-tejshveeyerpurwad-hashs-projects.vercel.app,https://mediflow-ai-olive.vercel.app,http://localhost:5173
       - key: AI_SERVICE_URL
         fromService:
           type: web
