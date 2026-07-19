@@ -55,3 +55,5 @@ logs/
 .model_cache/
 ai-service/.model_cache/
 
+.vercel
+.env*
