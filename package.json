@@ -1,66 +1,38 @@
 {
-  "name": "swasthai-guardian",
-  "version": "1.0.0",
+  "name": "mediflow-ai",
+  "version": "2.0.0",
   "engines": {
-    "node": "20.14.0"
+    "node": "22.x"
   },
   "private": true,
   "scripts": {
-    "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install && cd ../ai-service && pip install -r requirements.txt",
-    "build": "cd backend && npm install && cd ../frontend && npm install --include=dev && npm run build",
     "start": "node --max-old-space-size=400 backend/server.js",
     "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm run dev\" \"cd ai-service && uvicorn main:app --port 8000 --host 127.0.0.1\"",
     "dev:ai": "cd ai-service && uvicorn main:app --port 8000 --host 127.0.0.1",
-    "train:ai": "cd ai-service && python train_disease_model.py && python train_deep_model.py && python calibrate_rag.py",
-    "heroku-postbuild": "npm run build"
+    "train:ai": "cd ai-service && python train_disease_model.py && python train_deep_model.py && python calibrate_rag.py"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "cors": "^2.8.5",
+    "helmet": "^8.1.0",
+    "express-rate-limit": "^8.4.1",
+    "jsonwebtoken": "^9.0.2",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5",
+    "axios": "^1.14.0",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^6.0.1",
+    "pg": "^8.11.5",
+    "ws": "^8.21.0",
+    "@aws-sdk/client-dynamodb": "^3.569.0",
+    "@aws-sdk/lib-dynamodb": "^3.569.0",
+    "zod": "^4.4.3"
+  },
+  "optionalDependencies": {
+    "better-sqlite3": "^12.10.0"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
   },
-  "description": "Offline-first AI healthcare infrastructure for rural India — disease surveillance, autonomous outbreak detection, and emergency coordination for 600M+ citizens.",
-  "main": "index.js",
-  "directories": {
-    "doc": "docs"
-  },
-  "dependencies": {
-    "ansi-regex": "^5.0.1",
-    "ansi-styles": "^4.3.0",
-    "chalk": "^4.1.2",
-    "cliui": "^8.0.1",
-    "color-convert": "^2.0.1",
-    "color-name": "^1.1.4",
-    "date-fns": "^2.30.0",
-    "emoji-regex": "^8.0.0",
-    "escalade": "^3.2.0",
-    "get-caller-file": "^2.0.5",
-    "has-flag": "^4.0.0",
-    "is-fullwidth-code-point": "^3.0.0",
-    "lodash": "^4.18.1",
-    "mermaid": "^11.15.0",
-    "require-directory": "^2.1.1",
-    "rxjs": "^7.8.2",
-    "shell-quote": "^1.8.3",
-    "spawn-command": "^0.0.2",
-    "string-width": "^4.2.3",
-    "strip-ansi": "^6.0.1",
-    "supports-color": "^8.1.1",
-    "tree-kill": "^1.2.2",
-    "tslib": "^2.8.1",
-    "wrap-ansi": "^7.0.0",
-    "y18n": "^5.0.8",
-    "yargs": "^17.7.2",
-    "yargs-parser": "^21.1.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dgboy-ai/SwasthAI-Guardian-Platform.git"
-  },
-  "keywords": ["healthcare", "ai", "offline-first", "rural-health", "india", "public-health", "disease-surveillance", "pwa", "react", "nodejs", "fastapi"],
-  "author": "Tejshvini Yerpurwad (https://github.com/dgboy-ai)",
-  "license": "AGPL-3.0",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/dgboy-ai/SwasthAI-Guardian-Platform/issues"
-  },
-  "homepage": "https://github.com/dgboy-ai/SwasthAI-Guardian-Platform#readme"
+  "type": "commonjs"
 }
