@@ -1,5 +1,5 @@
 /**
- * DiSHA Consent Modal — SwasthAI Guardian
+ * DiSHA Consent Modal — MediFlow AI
  *
  * Shown once on first login. Persisted in localStorage so it never
  * appears again after consent is given.
@@ -39,7 +39,7 @@ const DISHA_TEXTS = {
         icon: ShieldCheck,
         color: 'bg-rose-50 text-rose-600',
         title: 'DISHA & HIPAA Compliance',
-        body: "SwasthAI follows India's digital health privacy law (DISHA 2023) and international HIPAA standards. This means your health records are digitally locked, encrypted, and protected under law.",
+        body: "MediFlow AI follows India's digital health privacy law (DISHA 2023) and international HIPAA standards. This means your health records are digitally locked, encrypted, and protected under law.",
         legal: 'Your files are secured under strict national and international data privacy laws.'
       },
       {
@@ -51,10 +51,10 @@ const DISHA_TEXTS = {
       }
     ],
     checkbox_title: 'I understand and give my consent',
-    checkbox_body: 'I understand and consent to SwasthAI storing my health information as described above, in compliance with DISHA 2023, HIPAA, and the IT Act.',
+    checkbox_body: 'I understand and consent to MediFlow AI storing my health information as described above, in compliance with DISHA 2023, HIPAA, and the IT Act.',
     btn_agree: 'Yes, I Agree',
     btn_success: 'Consent Recorded — Welcome!',
-    footer: 'SwasthAI Guardian · DISHA 2023 · HIPAA Aligned · IT Act 2008 · WHO Digital Health Privacy 2023'
+    footer: 'MediFlow AI · DISHA 2023 · HIPAA Aligned · IT Act 2008 · WHO Digital Health Privacy 2023'
   },
   hi: {
     tag: 'दिशा 2023 · डेटा गोपनीयता',

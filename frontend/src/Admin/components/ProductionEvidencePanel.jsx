@@ -181,7 +181,7 @@ export default function ProductionEvidencePanel({ systemStatus, dynamoFeed, load
             AWS Multi-Region Resilience Matrix · B2B SaaS Architecture
           </div>
           <p className="leading-relaxed text-xs">
-            SwasthAI pairs the ACID transactional safety of <strong className="text-emerald-300">Amazon Aurora PostgreSQL</strong> (medical consent & diagnosis) with the infinite sub-10ms scale of <strong className="text-amber-300">Amazon DynamoDB</strong> (high-velocity village telemetry). Both are live in <strong className="text-sky-300">ap-south-1 (Mumbai)</strong>.
+            MediFlow AI pairs the ACID transactional safety of <strong className="text-emerald-300">Amazon Aurora PostgreSQL</strong> (medical consent & diagnosis) with the infinite sub-10ms scale of <strong className="text-amber-300">Amazon DynamoDB</strong> (high-velocity village telemetry). Both are live in <strong className="text-sky-300">ap-south-1 (Mumbai)</strong>.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-1">
             {[
@@ -391,7 +391,7 @@ export default function ProductionEvidencePanel({ systemStatus, dynamoFeed, load
             })}
             <div className="flex items-center text-slate-500 text-[10px] px-2 pt-1">
               <span className="text-emerald-400 font-black mr-1.5">$</span>
-              <span>swasthai --watch live:traces --interval=3000</span>
+              <span>MediFlow AI --watch live:traces --interval=3000</span>
               <span className="w-1.5 h-3.5 bg-slate-400 ml-1 inline-block align-middle animate-cursor" />
             </div>
           </div>

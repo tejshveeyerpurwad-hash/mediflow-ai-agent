@@ -1,5 +1,5 @@
 """
-SwasthAI Guardian - Deep Learning Disease Prediction
+MediFlow AI - Deep Learning Disease Prediction
 Trains a Transformer-based Neural Network for robust, multilingual symptom checking.
 
 Usage:
@@ -163,7 +163,7 @@ print("[SAVED] deep_disease_model.pkl")
 # ── Audit log (evaluator-readable) ────────────────────────────────────────────────
 accuracy_path = os.path.join(os.path.dirname(__file__), "deep_model_accuracy.txt")
 with open(accuracy_path, "w", encoding="utf-8") as f:
-    f.write("SwasthAI Guardian - SymptomNet Deep Learning Model\n")
+    f.write("MediFlow AI - SymptomNet Deep Learning Model\n")
     f.write("=" * 56 + "\n")
     f.write(f"Algorithm         : Multilayer Perceptron (3-layer MLP)\n")
     f.write(f"Embeddings        : {MODEL_NAME}\n")

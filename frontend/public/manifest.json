@@ -1,7 +1,7 @@
 {
-  "name": "SwasthAI Guardian",
-  "short_name": "SwasthAI",
-  "description": "AI-powered rural health guardian for villages across India. Symptom checker, Sakhi AI, ambulance access & outbreak alerts.",
+  "name": "MediFlow AI",
+  "short_name": "MediFlow AI",
+  "description": "AI-powered rural health platform for villages across India. Symptom checker, Sakhi AI, ambulance access & outbreak alerts.",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
@@ -11,15 +11,11 @@
   "categories": ["health", "medical", "lifestyle"],
   "icons": [
     {
-      "src": "/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
+      "src": "/icon-192.svg", "sizes": "192x192", "type": "image/svg+xml",
       "purpose": "any maskable"
     },
     {
-      "src": "/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
+      "src": "/icon-512.svg", "sizes": "512x512", "type": "image/svg+xml",
       "purpose": "any maskable"
     }
   ],

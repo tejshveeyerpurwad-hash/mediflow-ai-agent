@@ -1,5 +1,5 @@
 """
-SwasthAI Guardian - Disease Prediction Model Training Script
+MediFlow AI - Disease Prediction Model Training Script
 Trains an Ensemble Voting Classifier on the generated multilingual clinical symptoms dataset.
 """
 import pandas as pd, joblib
@@ -55,7 +55,7 @@ if __name__ == "__main__":
     # Write audit log for evaluators
     accuracy_file = os.path.join(os.path.dirname(__file__), "model_accuracy.txt")
     with open(accuracy_file, "w", encoding="utf-8") as f:
-        f.write("SwasthAI Guardian - Disease Prediction Model\n")
+        f.write("MediFlow AI - Disease Prediction Model\n")
         f.write("=" * 50 + "\n")
         f.write("Algorithm     : Logistic Regression Classifier\n")
         f.write("Vectorizer    : TF-IDF (unigrams + bigrams)\n")

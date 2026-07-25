@@ -4,7 +4,7 @@ import { useLanguage } from '../context/LanguageContext';
 
 export default function MenstrualCycleTracker() {
   const { t } = useLanguage();
-  const [lastPeriod, setLastPeriod] = useState(localStorage.getItem('swasthai_last_period') || '');
+  const [lastPeriod, setLastPeriod] = useState(localStorage.getItem('mediflow_last_period') || '');
   const [cycleLength] = useState(28); // defaulting to 28 days for rural simplicity
 
   const calculateNext = () => {
@@ -17,7 +17,7 @@ export default function MenstrualCycleTracker() {
   const handleSave = (e) => {
     const val = e.target.value;
     setLastPeriod(val);
-    localStorage.setItem('swasthai_last_period', val);
+    localStorage.setItem('mediflow_last_period', val);
   };
 
   const nextPeriod = calculateNext();

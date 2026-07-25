@@ -2,7 +2,7 @@
 
 ## Introduction
 
-SwasthAI Guardian is built as a **decoupled, offline-first, three-tier architecture** designed for rural healthcare environments where internet connectivity is intermittent or unavailable. The platform combines edge intelligence on the client with cloud-based AI and storage services, ensuring clinical workflows continue uninterrupted during network outages.
+MediFlow AI is built as a **decoupled, offline-first, three-tier architecture** designed for rural healthcare environments where internet connectivity is intermittent or unavailable. The platform combines edge intelligence on the client with cloud-based AI and storage services, ensuring clinical workflows continue uninterrupted during network outages.
 
 This document describes the high-level system architecture, component interactions, deployment topology, best practices, and planned improvements.
 

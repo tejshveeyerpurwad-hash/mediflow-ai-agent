@@ -1,4 +1,4 @@
-SwasthAI Guardian - SymptomNet Deep Learning Model
+MediFlow AI - SymptomNet Deep Learning Model
 ====================================================
 Algorithm      : Multilayer Perceptron (3-layer MLP)
 Embeddings     : paraphrase-multilingual-MiniLM-L12-v2

@@ -1,17 +1,17 @@
 import { createContext, useContext, useState, useEffect, useCallback } from 'react';
 
-const SIMPLE_MODE_KEY = 'swasthai_simple_mode';
-const VOICE_GUIDED_KEY = 'swasthai_voice_guided';
+const SIMPLE_MODE_KEY = 'mediflow_simple_mode';
+const VOICE_GUIDED_KEY = 'mediflow_voice_guided';
 const GUIDED_STEPS = ['welcome', 'name', 'phone', 'village', 'password', 'complete'];
 
 const LOGIN_GUIDE_PROMPTS = {
-  en: 'Welcome to SwasthAI Guardian. Tap the microphone button or type your registered mobile number. Then enter the code sent to your phone.',
-  hi: 'SwasthAI Guardian mein aapka swagat hai. Kripya apna mobile number boliye ya type karein. Phir aapke phone par bheja gaya code daalein.',
-  mr: 'SwasthAI Guardian madhye aaple swagat aahe. Krupaya aapla mobile number bolaa ki type kara. Nantar aaplya phone var pathavlela code takaa.',
-  ta: 'SwasthAI Guardian-ku varavekkam. Ungal mobile ennai solungal allatu type seyyungal. Piragu ungal kai pesiyil vanta kodai uzhuthungal.',
-  te: 'SwasthAI Guardian lo miku svagatham. Mi mobile number cheppandi leka type cheyandi. Taruvata mi phone ki vachina code ni nirayandi.',
-  bn: 'SwasthAI Guardian-e apnake shagotom. Doya kore apnar mobile number bolun ba type korun. Tarpor apnar phon-e asha OTP ta diye din.',
-  gu: 'SwasthAI Guardian ma tamaru svagat che. Kripya tamaro mobile number bolo ya type karo. Pachi tamara phone par mokalayel code no dar karo.',
+  en: 'Welcome to MediFlow AI. Tap the microphone button or type your registered mobile number. Then enter the code sent to your phone.',
+  hi: 'MediFlow AI mein aapka swagat hai. Kripya apna mobile number boliye ya type karein. Phir aapke phone par bheja gaya code daalein.',
+  mr: 'MediFlow AI madhye aaple swagat aahe. Krupaya aapla mobile number bolaa ki type kara. Nantar aaplya phone var pathavlela code takaa.',
+  ta: 'MediFlow AI-ku varavekkam. Ungal mobile ennai solungal allatu type seyyungal. Piragu ungal kai pesiyil vanta kodai uzhuthungal.',
+  te: 'MediFlow AI lo miku svagatham. Mi mobile number cheppandi leka type cheyandi. Taruvata mi phone ki vachina code ni nirayandi.',
+  bn: 'MediFlow AI-e apnake shagotom. Doya kore apnar mobile number bolun ba type korun. Tarpor apnar phon-e asha OTP ta diye din.',
+  gu: 'MediFlow AI ma tamaru svagat che. Kripya tamaro mobile number bolo ya type karo. Pachi tamara phone par mokalayel code no dar karo.',
 };
 
 const VoiceGuidanceContext = createContext(null);

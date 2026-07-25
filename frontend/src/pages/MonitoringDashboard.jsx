@@ -307,7 +307,7 @@ export default function MonitoringDashboard() {
     if (demoRunning) return;
     setDemoRunning(true);
     setSimLogs([]);
-    addSimLog('🏁 Starting SwasthAI Demo Pipeline...', '#6366f1');
+    addSimLog('🏁 Starting MediFlow AI Demo Pipeline...', '#6366f1');
     
     // 1. Sim Offline
     addSimLog('🔌 Simulating cellular network drop (OFFLINE)...', '#f59e0b');
@@ -321,7 +321,7 @@ export default function MonitoringDashboard() {
     await queueAmbulanceRequest({ name: 'Sita Devi', location: 'Ward 3, Rampur', priority: 'High', type: 'emergency', symptoms: 'Emergency labor pains' });
     
     // Trigger queue refresh event
-    window.dispatchEvent(new Event('swasthai_queue_updated'));
+    window.dispatchEvent(new Event('mediflow_queue_updated'));
     await new Promise(r => setTimeout(r, 3000));
 
     // 3. Reconnect Online
@@ -332,7 +332,7 @@ export default function MonitoringDashboard() {
     // 4. Force sync
     addSimLog('⚡ Replaying local IndexedDB log queues to DynamoDB & PostgreSQL...', '#6366f1');
     await syncAllQueues();
-    window.dispatchEvent(new Event('swasthai_queue_updated'));
+    window.dispatchEvent(new Event('mediflow_queue_updated'));
     await new Promise(r => setTimeout(r, 2000));
 
     // 5. Outbreak surge
@@ -383,8 +383,8 @@ export default function MonitoringDashboard() {
     const refresh = () => getQueueStats().then(setQueueStats);
     refresh();
     const interval = setInterval(refresh, 3000);
-    window.addEventListener('swasthai_queue_updated', refresh);
-    return () => { clearInterval(interval); window.removeEventListener('swasthai_queue_updated', refresh); };
+    window.addEventListener('mediflow_queue_updated', refresh);
+    return () => { clearInterval(interval); window.removeEventListener('mediflow_queue_updated', refresh); };
   }, []);
 
   // ── DynamoDB live feed polling
@@ -586,7 +586,7 @@ export default function MonitoringDashboard() {
           <h1 style={{ fontSize: 22, fontWeight: 800, margin: 0, background: 'linear-gradient(90deg,#6366f1,#8b5cf6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
             🛰️ System Observability
           </h1>
-          <p style={{ fontSize: 12, color: '#6b7280', margin: '4px 0 0' }}>SwasthAI Guardian — Live Infrastructure Monitor</p>
+          <p style={{ fontSize: 12, color: '#6b7280', margin: '4px 0 0' }}>MediFlow AI — Live Infrastructure Monitor</p>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
           <span style={{
@@ -1249,7 +1249,7 @@ export default function MonitoringDashboard() {
                 <button
                   onClick={async () => {
                     await queueMaternalRecord({ name: 'Ankita Patel', age: 26, trimester: 3, riskLevel: 'High', villageId: 'v101' });
-                    window.dispatchEvent(new Event('swasthai_queue_updated'));
+                    window.dispatchEvent(new Event('mediflow_queue_updated'));
                     addSimLog('📝 Step 2: Submitted maternal record offline to IndexedDB queue', '#ec4899');
                     setSyncWalkthroughStep(2);
                   }}
@@ -1300,7 +1300,7 @@ export default function MonitoringDashboard() {
                     toggleNetworkSim('online');
                     addSimLog('📡 Step 4: Restored connection, replaying IndexedDB to server...', '#10b981');
                     await syncAllQueues();
-                    window.dispatchEvent(new Event('swasthai_queue_updated'));
+                    window.dispatchEvent(new Event('mediflow_queue_updated'));
                     setSyncWalkthroughStep(4);
                   }}
                   style={{
@@ -1460,7 +1460,7 @@ export default function MonitoringDashboard() {
                   onClick={async () => {
                     // Queue the relayed villager record into the ASHA worker's IndexedDB queue
                     await queueMaternalRecord({ name: 'Kiran Sharma', age: 24, trimester: 1, riskLevel: 'Normal', villageId: 'v103', relayedBy: 'ASHA-Proxy-103' });
-                    window.dispatchEvent(new Event('swasthai_queue_updated'));
+                    window.dispatchEvent(new Event('mediflow_queue_updated'));
                     addSimLog('📦 Step 3: Relayed villager record pulled to ASHA worker proxy queue', '#a78bfa');
                     setP2pStep(3);
                   }}
@@ -1486,7 +1486,7 @@ export default function MonitoringDashboard() {
                   onClick={async () => {
                     addSimLog('☁️ Step 4: Replaying ASHA proxy queue to server...', '#10b981');
                     await syncAllQueues();
-                    window.dispatchEvent(new Event('swasthai_queue_updated'));
+                    window.dispatchEvent(new Event('mediflow_queue_updated'));
                     addSimLog('🎉 Step 4: Relayed villager record synced successfully via proxy!', '#34d399');
                     setP2pStep(null);
                   }}

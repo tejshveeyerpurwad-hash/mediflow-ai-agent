@@ -24,7 +24,7 @@ export default function Footer() {
               </div>
               <div className="flex flex-col leading-none">
                 <span className="text-xl font-black tracking-tighter uppercase">
-                  SwasthAI <span className="text-emerald-500 font-medium">Guardian</span>
+                  MediFlow AI <span className="text-emerald-500 font-medium">Guardian</span>
                 </span>
                 <span className="text-[9px] font-black text-emerald-500/60 mt-0.5 uppercase tracking-widest">
                   Rural Health Network
@@ -32,7 +32,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-xs sm:text-sm font-medium text-slate-400 leading-relaxed max-w-sm hidden sm:block">
-              Bridging the healthcare gap in rural India. SwasthAI provides instant AI diagnostics, emergency ambulance dispatch, and maternal health tracking - offline-first.
+              Bridging the healthcare gap in rural India. MediFlow AI provides instant AI diagnostics, emergency ambulance dispatch, and maternal health tracking - offline-first.
             </p>
             <div className="hidden sm:flex flex-wrap gap-2">
               <div className="flex items-center gap-2 px-3 py-1.5 bg-white/5 rounded-lg border border-white/10">
@@ -121,10 +121,10 @@ export default function Footer() {
 
         <div className="pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-3 text-emerald-500 font-black text-[9px] uppercase tracking-widest">
-            <ShieldCheck className="w-4 h-4" /> Secured by SwasthAI Protocols
+            <ShieldCheck className="w-4 h-4" /> Secured by MediFlow AI Protocols
           </div>
           <p className="text-slate-500 font-bold text-[10px] uppercase tracking-widest text-center">
-            &copy; 2026 SwasthAI Guardian &middot; AI-Powered Rural Healthcare
+            &copy; 2026 MediFlow AI &middot; AI-Powered Rural Healthcare
           </p>
           <div className="flex items-center gap-6">
             <span className="text-[9px] font-black text-slate-600 uppercase tracking-widest cursor-pointer hover:text-white transition-colors">Privacy</span>

@@ -11,7 +11,7 @@ export default function PrivacyPage() {
         <div className="prose prose-slate max-w-none">
           <h2 className="text-xl font-black text-slate-900 mt-8 mb-3">Data Protection</h2>
           <p className="text-slate-600 text-sm leading-relaxed">
-            SwasthAI Guardian is designed with privacy-first architecture in compliance with India's Digital Personal Data Protection Act (DPDP) 2023 and the Ministry of Health's DI SHA guidelines. All personally identifiable information (PII) is encrypted at rest and in transit.
+            MediFlow AI is designed with privacy-first architecture in compliance with India's Digital Personal Data Protection Act (DPDP) 2023 and the Ministry of Health's DI SHA guidelines. All personally identifiable information (PII) is encrypted at rest and in transit.
           </p>
 
           <h2 className="text-xl font-black text-slate-900 mt-8 mb-3">Aadhaar & Identity</h2>

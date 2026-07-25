@@ -2,7 +2,7 @@ const API_BASE = (process.env.API_BASE || 'http://localhost:5000/api').replace(/
 const identifier = process.env.SMOKE_IDENTIFIER || process.env.SMOKE_PHONE || '9876543210';
 const password = process.env.SMOKE_PASSWORD || 'Demo@1234';
 const role = process.env.SMOKE_ROLE || 'villager';
-const adminIdentifier = process.env.SMOKE_ADMIN_IDENTIFIER || 'admin@swasthai.in';
+const adminIdentifier = process.env.SMOKE_ADMIN_IDENTIFIER || 'admin@mediflow-ai.demo';
 const adminPassword = process.env.SMOKE_ADMIN_PASSWORD || 'Demo@1234';
 
 async function request(path, options = {}) {

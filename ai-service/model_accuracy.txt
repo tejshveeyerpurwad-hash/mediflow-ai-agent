@@ -1,4 +1,4 @@
-SwasthAI Guardian - Disease Prediction Model
+MediFlow AI - Disease Prediction Model
 ==================================================
 Algorithm     : Logistic Regression Classifier
 Vectorizer    : TF-IDF (unigrams + bigrams)

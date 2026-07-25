@@ -18,7 +18,7 @@ RUN python generate_dataset.py && python train_disease_model.py
 
 EXPOSE 8000
 
-RUN useradd -m -u 1001 swasthai && chown -R swasthai:swasthai /app
-USER swasthai
+RUN useradd -m -u 1001 mediflow && chown -R mediflow:mediflow /app
+USER mediflow
 
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "1"]

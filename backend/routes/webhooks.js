@@ -11,7 +11,7 @@
  * Required env vars:
  *   TWILIO_AUTH_TOKEN   — used to verify HMAC signature
  *   TWILIO_WEBHOOK_URL  — the full public URL of this endpoint
- *                         (e.g. https://api.swasthai.in/api/webhooks/twilio)
+ *                         (e.g. https://api.mediflow-ai.demo/api/webhooks/twilio)
  *                         Must match the URL Twilio signs the request with.
  */
 

@@ -94,13 +94,13 @@ export default function ASHAVillagerRegistration({ isOpen = true, onClose, onSuc
     setSaving(false);
 
     try {
-      const existing = JSON.parse(localStorage.getItem('swasthai_offline_user_cache') || '[]');
+      const existing = JSON.parse(localStorage.getItem('mediflow_offline_user_cache') || '[]');
       existing.push({
         id, name: form.name, phone: form.phone,
         villageId: form.village || user?.villageId || 'v101',
         role: 'villager', registeredBy: user?.name || 'ASHA Worker',
       });
-      localStorage.setItem('swasthai_offline_user_cache', JSON.stringify(existing));
+      localStorage.setItem('mediflow_offline_user_cache', JSON.stringify(existing));
     } catch (_) {}
 
     showToast(`Villager registered. Health ID: ${id}`, 'success');

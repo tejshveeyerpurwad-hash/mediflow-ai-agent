@@ -17,7 +17,7 @@ export default function BrandLogo({ size = 'md', showSubtitle = true, className 
       </div>
       <div className="text-left leading-none">
         <div className="flex items-baseline gap-0.5">
-          <span className={`${s.title} font-black text-slate-900 leading-none`}>SwasthAI</span>
+          <span className={`${s.title} font-black text-slate-900 leading-none`}>MediFlow AI</span>
         </div>
         {showSubtitle && (
           <p className={`${s.subtitle} font-black text-slate-400 uppercase tracking-widest mt-0.5 leading-none`}>

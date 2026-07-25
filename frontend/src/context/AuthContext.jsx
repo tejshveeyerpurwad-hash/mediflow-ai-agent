@@ -131,8 +131,8 @@ export const AuthProvider = ({ children }) => {
   const clearSession = useCallback(() => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-    localStorage.removeItem('swasthai_session_start');
-    localStorage.removeItem('swasthai_session_id');
+    localStorage.removeItem('mediflow_session_start');
+    localStorage.removeItem('mediflow_session_id');
     _setUser(null);
   }, []);
 
@@ -160,11 +160,11 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     try {
-      const offlineUsers = normalizeOfflineUsers(JSON.parse(localStorage.getItem('swasthai_offline_user_cache') || '[]'));
+      const offlineUsers = normalizeOfflineUsers(JSON.parse(localStorage.getItem('mediflow_offline_user_cache') || '[]'));
       const defaultDemoUsers = [
         { id: 'demo-villager', name: 'Ramesh Singh', username: '9876543210', email: '', phone: '9876543210', credentialHash: demoCredentialHash('9876543210', 'villager'), role: 'villager', villageId: 'v101', isOfflineSession: true },
         { id: 'demo-ngo', name: 'Anjali Sharma', username: '9876543211', email: '', phone: '9876543211', credentialHash: demoCredentialHash('9876543211', 'ngo'), role: 'ngo', villageId: 'v101', isOfflineSession: true },
-        { id: 'demo-admin', name: 'District Administrator', username: 'admin', email: 'admin@swasthai.in', phone: '', credentialHash: demoCredentialHash('admin@swasthai.in', 'admin'), role: 'admin', villageId: 'v101', isOfflineSession: true }
+        { id: 'demo-admin', name: 'District Administrator', username: 'admin', email: 'admin@mediflow-ai.demo', phone: '', credentialHash: demoCredentialHash('admin@mediflow-ai.demo', 'admin'), role: 'admin', villageId: 'v101', isOfflineSession: true }
       ];
       let updated = [...offlineUsers];
       defaultDemoUsers.forEach(demoUser => {
@@ -179,7 +179,7 @@ export const AuthProvider = ({ children }) => {
           updated.push(demoUser);
         }
       });
-      localStorage.setItem('swasthai_offline_user_cache', JSON.stringify(updated));
+      localStorage.setItem('mediflow_offline_user_cache', JSON.stringify(updated));
     } catch (e) {
       console.error('Failed to seed offline database:', e);
     }
@@ -187,7 +187,7 @@ export const AuthProvider = ({ children }) => {
     try {
       const token = localStorage.getItem('token');
       const savedUser = localStorage.getItem('user');
-      const sessionStart = localStorage.getItem('swasthai_session_start');
+      const sessionStart = localStorage.getItem('mediflow_session_start');
 
       if (token && savedUser) {
         if (sessionStart) {
@@ -201,7 +201,7 @@ export const AuthProvider = ({ children }) => {
           sessionStartRef.current = parseInt(sessionStart, 10);
         } else {
           sessionStartRef.current = Date.now();
-          localStorage.setItem('swasthai_session_start', String(sessionStartRef.current));
+          localStorage.setItem('mediflow_session_start', String(sessionStartRef.current));
         }
         setUser(JSON.parse(savedUser));
       } else {
@@ -211,8 +211,8 @@ export const AuthProvider = ({ children }) => {
       console.error('Error parsing user from localStorage:', error);
       localStorage.removeItem('token');
       localStorage.removeItem('user');
-      localStorage.removeItem('swasthai_session_start');
-      localStorage.removeItem('swasthai_session_id');
+      localStorage.removeItem('mediflow_session_start');
+      localStorage.removeItem('mediflow_session_id');
       setUser(null);
     } finally {
       setLoading(false);
@@ -244,7 +244,7 @@ export const AuthProvider = ({ children }) => {
 
   const cacheUserOffline = (data) => {
     try {
-      const offlineUsers = JSON.parse(localStorage.getItem('swasthai_offline_user_cache') || '[]');
+      const offlineUsers = JSON.parse(localStorage.getItem('mediflow_offline_user_cache') || '[]');
       const newUser = {
         id: 'cached-user-' + Date.now(),
         name: data.name,
@@ -262,7 +262,7 @@ export const AuthProvider = ({ children }) => {
         (data.email ? u.email !== data.email : true)
       );
       filtered.push(newUser);
-      localStorage.setItem('swasthai_offline_user_cache', JSON.stringify(filtered));
+      localStorage.setItem('mediflow_offline_user_cache', JSON.stringify(filtered));
       return newUser;
     } catch (e) {
       console.error('Error caching user offline:', e);
@@ -296,8 +296,8 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem('token', 'session_' + sessionId);
       localStorage.setItem('user', JSON.stringify(matchedUser));
       const now = Date.now();
-      localStorage.setItem('swasthai_session_start', String(now));
-      localStorage.setItem('swasthai_session_id', sessionId);
+      localStorage.setItem('mediflow_session_start', String(now));
+      localStorage.setItem('mediflow_session_id', sessionId);
       sessionStartRef.current = now;
       lastActivityRef.current = now;
       setUser(matchedUser);
@@ -306,7 +306,7 @@ export const AuthProvider = ({ children }) => {
 
     const createOfflineSession = () => {
       try {
-        const offlineUsers = JSON.parse(localStorage.getItem('swasthai_offline_user_cache') || '[]');
+        const offlineUsers = JSON.parse(localStorage.getItem('mediflow_offline_user_cache') || '[]');
         const matchedUser = offlineUsers.find(u =>
           (u.email && u.email.toLowerCase() === identifier.toLowerCase()) ||
           (u.phone && u.phone === identifier) ||
@@ -337,8 +337,8 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem('token', res.data.token || 'session_' + sessionId);
       localStorage.setItem('user', JSON.stringify(res.data.user));
       const now = Date.now();
-      localStorage.setItem('swasthai_session_start', String(now));
-      localStorage.setItem('swasthai_session_id', sessionId);
+      localStorage.setItem('mediflow_session_start', String(now));
+      localStorage.setItem('mediflow_session_id', sessionId);
       sessionStartRef.current = now;
       lastActivityRef.current = now;
       setUser(res.data.user);
@@ -362,8 +362,8 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem('token', 'session_' + sessionId);
       localStorage.setItem('user', JSON.stringify(matchedUser));
       const now = Date.now();
-      localStorage.setItem('swasthai_session_start', String(now));
-      localStorage.setItem('swasthai_session_id', sessionId);
+      localStorage.setItem('mediflow_session_start', String(now));
+      localStorage.setItem('mediflow_session_id', sessionId);
       sessionStartRef.current = now;
       lastActivityRef.current = now;
       setUser(matchedUser);
@@ -372,7 +372,7 @@ export const AuthProvider = ({ children }) => {
 
     const createOfflineOTPSession = () => {
       try {
-        const offlineUsers = JSON.parse(localStorage.getItem('swasthai_offline_user_cache') || '[]');
+        const offlineUsers = JSON.parse(localStorage.getItem('mediflow_offline_user_cache') || '[]');
         const matchedUser = offlineUsers.find(u => u.phone === phone && u.role === role);
         if (matchedUser) {
           return createOTPSession(matchedUser);
@@ -397,8 +397,8 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem('token', res.data.token || 'session_' + sessionId);
       localStorage.setItem('user', JSON.stringify(res.data.user));
       const now = Date.now();
-      localStorage.setItem('swasthai_session_start', String(now));
-      localStorage.setItem('swasthai_session_id', sessionId);
+      localStorage.setItem('mediflow_session_start', String(now));
+      localStorage.setItem('mediflow_session_id', sessionId);
       sessionStartRef.current = now;
       lastActivityRef.current = now;
       setUser(res.data.user);

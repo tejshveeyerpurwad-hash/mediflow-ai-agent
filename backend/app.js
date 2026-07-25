@@ -171,7 +171,7 @@ const pgAvailable = await (async () => {
   if (!process.env.DATABASE_URL && !process.env.DB_PASSWORD) return false;
   try {
     const testPool = new Pool({
-      connectionString: process.env.DATABASE_URL || `postgresql://${process.env.DB_USER || 'postgres'}:${process.env.DB_PASSWORD}@${process.env.DB_HOST || 'localhost'}:5432/${process.env.DB_NAME || 'swasthai'}`,
+      connectionString: process.env.DATABASE_URL || `postgresql://${process.env.DB_USER || 'postgres'}:${process.env.DB_PASSWORD}@${process.env.DB_HOST || 'localhost'}:5432/${process.env.db_name=mediflow'}`,
       ssl: process.env.DATABASE_URL
         ? { rejectUnauthorized: process.env.DB_SSL_REJECT_UNAUTHORIZED !== 'false' }
         : false,
@@ -216,7 +216,7 @@ if (!pgAvailable) {
   let sqliteDbInstance;
   try {
     const sqlite3 = require('better-sqlite3');
-    sqliteDbInstance = sqlite3(path.join(__dirname, 'swasthai_guardian.sqlite'));
+    sqliteDbInstance = sqlite3(path.join(__dirname, 'mediflow.sqlite'));
     db = {
       get: (sql, params = []) => Promise.resolve(sqliteDbInstance.prepare(sql).get(params) || null),
       all: (sql, params = []) => Promise.resolve(sqliteDbInstance.prepare(sql).all(params)),
@@ -232,7 +232,7 @@ if (!pgAvailable) {
     const sqliteModule = await import('sqlite3');
     const sqliteLib = sqliteModule.default;
     const { open } = await import('sqlite');
-    const sqliteDb = await open({ filename: path.join(__dirname, 'swasthai_guardian.sqlite'), driver: sqliteLib.Database });
+    const sqliteDb = await open({ filename: path.join(__dirname, 'mediflow.sqlite'), driver: sqliteLib.Database });
     db = {
       get: (sql, params = []) => sqliteDb.get(sql, params),
       all: (sql, params = []) => sqliteDb.all(sql, params),
@@ -324,7 +324,7 @@ app.get('/api/health', async (req, res) => {
   const forceConnected = process.env.FORCE_DB_CONNECTED === 'true' || process.env.NODE_ENV === 'production';
   res.json({
     status: 'ok',
-    service: 'SwasthAI Guardian Backend',
+    service: 'MediFlow AI Backend',
     uptime: Math.floor(process.uptime()),
     timestamp: new Date().toISOString(),
     worker: process.pid,
@@ -410,7 +410,7 @@ app.get('/api/health/detailed', async (req, res) => {
   }
 
   res.json({
-    service:   'SwasthAI Guardian \u2014 District Health Command Platform',
+    service:   'MediFlow AI \u2014 District Health Command Platform',
     version:   '2.0.0',
     uptime:    `${Math.floor(process.uptime())}s`,
     timestamp: new Date().toISOString(),

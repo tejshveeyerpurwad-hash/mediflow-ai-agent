@@ -1,4 +1,4 @@
-// ─── SwasthAI Guardian — District Health Command Center ───────────────────────
+// ─── MediFlow AI — District Health Command Center ───────────────────────
 // Full desktop command center: sidebar + topbar + analytics + outbreak radar +
 // emergency panel + pregnancy + nutrition + vaccination + NGO dashboard
 // Route: /district  |  Desktop-first (lg+)  |  React + Tailwind + Recharts
@@ -166,7 +166,7 @@ export default function DistrictCommandCenter() {
           {!sidebarCollapsed && (
             <div>
               <div className="flex items-baseline gap-1">
-                <span className="text-sm font-black text-white">SwasthAI</span>
+                <span className="text-sm font-black text-white">MediFlow AI</span>
                 <span className="text-sm font-black text-emerald-400">GUARDIAN</span>
               </div>
               <p className="text-[9px] font-semibold text-slate-500 uppercase tracking-wider">District Command</p>
@@ -642,7 +642,7 @@ export default function DistrictCommandCenter() {
 
           {/* ── Footer row ─────────────────────────────────────────────────── */}
           <div className="flex items-center justify-between text-[10px] text-slate-600 pt-2 pb-4 border-t border-slate-800">
-            <p>SwasthAI Guardian v2.4.1 · Powered by AWS Bedrock &amp; React · IEEE YESIST12 2025</p>
+            <p>MediFlow AI v2.4.1 · Powered by AWS Bedrock &amp; React · IEEE YESIST12 2025</p>
             <div className="flex items-center gap-2">
               <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
               <span className="text-emerald-600 font-bold">All systems operational</span>

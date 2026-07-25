@@ -25,7 +25,7 @@ export default function JudgePanel({ className = '' }) {
             <Trophy className="w-4.5 h-4.5 text-white" />
           </div>
           <div>
-            <h3 className="text-sm font-black text-white">Why SwasthAI Guardian Wins</h3>
+            <h3 className="text-sm font-black text-white">Why MediFlow AI Wins</h3>
             <p className="text-[10px] text-amber-400/80 font-semibold">Judge evaluation panel — 6 key differentiators</p>
           </div>
         </div>
@@ -71,7 +71,7 @@ export default function JudgePanel({ className = '' }) {
               <div className="bg-amber-500/10 border border-amber-500/30 rounded-xl p-4 mt-3 text-center">
                 <Sparkles className="w-5 h-5 text-amber-400 mx-auto mb-1.5" />
                 <p className="text-xs font-black text-amber-300">Built for Rural Health, Ready for the Judge</p>
-                <p className="text-[10px] text-amber-400/70 font-medium mt-1">SwasthAI Guardian demonstrates production-ready healthcare infrastructure that works where internet doesn't.</p>
+                <p className="text-[10px] text-amber-400/70 font-medium mt-1">MediFlow AI demonstrates production-ready healthcare infrastructure that works where internet doesn't.</p>
               </div>
             </div>
           </motion.div>

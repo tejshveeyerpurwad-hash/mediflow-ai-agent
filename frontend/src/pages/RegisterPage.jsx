@@ -168,7 +168,7 @@ export default function RegisterPage() {
               <HeartPulse className="w-6 h-6 text-emerald-400" />
             </div>
             <div>
-              <h1 className="text-xl font-black text-white tracking-tight">SwasthAI</h1>
+              <h1 className="text-xl font-black text-white tracking-tight">MediFlow AI</h1>
               <p className="text-emerald-400/70 text-[10px] font-bold uppercase tracking-widest">Rural Health Network</p>
             </div>
           </motion.div>
@@ -216,7 +216,7 @@ export default function RegisterPage() {
             <div className="p-2 bg-emerald-50 rounded-lg">
               <HeartPulse className="w-5 h-5 text-emerald-600" />
             </div>
-            <span className="font-black text-slate-900 text-base">SwasthAI</span>
+            <span className="font-black text-slate-900 text-base">MediFlow AI</span>
           </div>
 
           <div className="mb-6">
@@ -225,7 +225,7 @@ export default function RegisterPage() {
             </span>
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mb-1">Create Account</h2>
             <p className="text-sm text-slate-400 font-medium">
-              Join thousands in rural India who use SwasthAI to stay healthy and get help fast.
+              Join thousands in rural India who use MediFlow AI to stay healthy and get help fast.
             </p>
 
             <div className="flex flex-wrap gap-2 mt-4">

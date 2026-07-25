@@ -2,9 +2,9 @@
 
 ## Introduction
 
-SwasthAI Guardian exposes a **RESTful JSON API** through an Express.js backend. All endpoints are prefixed with `/api`. The API supports authentication via JWT tokens, role-based access control, input validation with Zod schemas, and structured error responses.
+MediFlow AI exposes a **RESTful JSON API** through an Express.js backend. All endpoints are prefixed with `/api`. The API supports authentication via JWT tokens, role-based access control, input validation with Zod schemas, and structured error responses.
 
-Base URL (production): `https://swasthai-backend.onrender.com/api`
+Base URL (production): `https://MediFlow AI-backend.onrender.com/api`
 
 ---
 

@@ -275,7 +275,7 @@ def predict_disease_local(text: str) -> str:
 from rag_service import rag_chat
 from outbreak_agent import start_agent_background, get_recent_outbreaks
 
-app = FastAPI(title="SwasthAI Guardian: AI Hub")
+app = FastAPI(title="MediFlow AI: AI Hub")
 
 import logging
 import json
@@ -295,7 +295,7 @@ class JsonFormatter(logging.Formatter):
             log_data["exception"] = self.formatException(record.exc_info)
         return json.dumps(log_data)
 
-logger = logging.getLogger("swasthai_ai")
+logger = logging.getLogger("MediFlow AI_ai")
 if not logger.handlers:
     handler = logging.StreamHandler()
     handler.setFormatter(JsonFormatter())
@@ -455,7 +455,7 @@ async def predict_disease(data: SymptomInput):
     
     if is_invalid_len or is_off_topic:
         guardrail_message = (
-            "Hello! I am SwasthAI Guardian. To help you properly, please describe actual physical health symptoms "
+            "Hello! I am MediFlow AI. To help you properly, please describe actual physical health symptoms "
             "(such as fever, cough, pain, headache, or skin rash). / नमस्ते! मैं स्वास्थ-एआई गार्जियन हूँ। "
             "आपकी सही मदद करने के लिए, कृपया वास्तविक शारीरिक स्वास्थ्य लक्षणों (जैसे बुखार, खांसी, दर्द, सिरदर्द, या त्वचा पर रैश) का वर्णन करें।"
         )

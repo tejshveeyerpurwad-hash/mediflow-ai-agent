@@ -1,7 +1,7 @@
 {
-  "name": "swasthai-guardian-backend",
+  "name": "MediFlow AI-guardian-backend",
   "version": "1.0.0",
-  "description": "SwasthAI Guardian — Express.js REST API for offline-first rural healthcare platform",
+  "description": "MediFlow AI — Express.js REST API for offline-first rural healthcare platform",
   "main": "server.js",
   "type": "module",
   "scripts": {

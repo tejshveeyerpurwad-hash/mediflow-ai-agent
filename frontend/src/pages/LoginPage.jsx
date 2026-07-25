@@ -16,13 +16,13 @@ import {
   CheckCircle, RefreshCw, MessageSquare
 } from 'lucide-react';
 
-const OFFLINE_CACHE_KEY = 'swasthai_offline_user_cache';
+const OFFLINE_CACHE_KEY = 'mediflow_offline_user_cache';
 const DEMO_SECRET = 'Demo@1234';
 const demoCredentialHash = (id, role, secret = DEMO_SECRET) => btoa(`${id}:${role}:${secret}`);
 const DEMO_CREDENTIALS = [
   { id: '9876543210', credentialHash: demoCredentialHash('9876543210', 'villager'), role: 'villager', name: 'Ramesh Singh' },
   { id: '9876543211', credentialHash: demoCredentialHash('9876543211', 'ngo'), role: 'ngo', name: 'Anjali Sharma' },
-  { id: 'admin@swasthai.in', credentialHash: demoCredentialHash('admin@swasthai.in', 'admin'), role: 'admin', name: 'District Administrator' },
+  { id: 'admin@mediflow-ai.demo', credentialHash: demoCredentialHash('admin@mediflow-ai.demo', 'admin'), role: 'admin', name: 'District Administrator' },
 ];
 
 function normalizeOfflineUsers(users) {
@@ -250,8 +250,8 @@ export default function LoginPage() {
         if (offlineUser) {
           const offlineToken = `offline_session_${offlineUser.role}_${Date.now()}`;
           localStorage.setItem('token', offlineToken);
-          localStorage.setItem('swasthai_session_start', String(Date.now()));
-          localStorage.setItem('swasthai_session_id', `offline_${Date.now()}`);
+          localStorage.setItem('mediflow_session_start', String(Date.now()));
+          localStorage.setItem('mediflow_session_id', `offline_${Date.now()}`);
           const userPayload = {
             id: offlineUser.id || `offline_${offlineUser.role}`,
             name: offlineUser.name,
@@ -343,7 +343,7 @@ export default function LoginPage() {
               <HeartPulse className="w-6 h-6 text-emerald-400" />
             </div>
             <div>
-              <h1 className="text-xl font-black text-white tracking-tight">SwasthAI</h1>
+              <h1 className="text-xl font-black text-white tracking-tight">MediFlow AI</h1>
               <p className="text-emerald-400/70 text-[10px] font-bold uppercase tracking-widest">Rural Health Network</p>
             </div>
           </motion.div>
@@ -391,7 +391,7 @@ export default function LoginPage() {
             <div className="p-2 bg-emerald-50 rounded-lg">
               <HeartPulse className="w-5 h-5 text-emerald-600" />
             </div>
-            <span className="font-black text-slate-900 text-base">SwasthAI</span>
+            <span className="font-black text-slate-900 text-base">MediFlow AI</span>
           </div>
 
           <div className="mb-6">
@@ -844,7 +844,7 @@ export default function LoginPage() {
                 {[
                   { roleLabel: 'Villager', roleId: 'villager', id: '9876543210', pass: 'Demo@1234' },
                   { roleLabel: 'ASHA Worker', roleId: 'ngo', id: '9876543211', pass: 'Demo@1234' },
-                  { roleLabel: 'Admin', roleId: 'admin', id: 'admin@swasthai.in', pass: 'Demo@1234' },
+                  { roleLabel: 'Admin', roleId: 'admin', id: 'admin@mediflow-ai.demo', pass: 'Demo@1234' },
                 ].map(d => (
                   <button
                     key={d.roleId}

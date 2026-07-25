@@ -95,7 +95,7 @@ function ConsentGate({ children }) {
   
   const getConsentKey = (u) => {
     if (!u) return null;
-    return `swasthai_disha_consent_${u.id || u.username || u.phone || 'guest'}`;
+    return `mediflow_disha_consent_${u.id || u.username || u.phone || 'guest'}`;
   };
 
   const [consented, setConsented] = useState(false);

@@ -27,7 +27,7 @@ export default function UserProfile() {
     if (user) {
       setEditName(user.name || '');
       // localStorage bridge: profile image persisted locally until backend file storage is wired
-      const stored = localStorage.getItem(`swasthai_profileImg_${user.id}`);
+      const stored = localStorage.getItem(`mediflow_profileImg_${user.id}`);
       setProfileImage(stored || null);
     }
   }, [user]);
@@ -58,7 +58,7 @@ export default function UserProfile() {
       setProfileImage(base64String);
       // Persist to localStorage so image survives page refresh and re-login
       if (user?.id) {
-        localStorage.setItem(`swasthai_profileImg_${user.id}`, base64String);
+        localStorage.setItem(`mediflow_profileImg_${user.id}`, base64String);
       }
       // Forward-compat: try backend (currently no image column, localStorage is source of truth)
       try { await updateProfile({ profileImage: base64String }); }
@@ -154,7 +154,7 @@ export default function UserProfile() {
           </div>
           <div className="relative z-10 flex items-start justify-between">
             <div className="space-y-1">
-              <p className="text-emerald-300 font-bold text-[9px] uppercase tracking-[0.2em]">SwasthAI Health ID</p>
+              <p className="text-emerald-300 font-bold text-[9px] uppercase tracking-[0.2em]">MediFlow AI Health ID</p>
               <h2 className="text-xl font-black">{userName}</h2>
               <p className="text-emerald-200 font-mono text-xs tracking-widest bg-black/20 px-2.5 py-1 rounded-lg inline-block mt-1">
                 SID-{String(userId).padStart(6, '0')}
@@ -172,7 +172,7 @@ export default function UserProfile() {
             </div>
             <div className="bg-white p-2 rounded-xl shadow-lg border border-white/20">
               <QRCodeSVG
-                value={`https://swasthai.app/verify/SID-${String(userId).padStart(6, '0')}`}
+                value={`https://mediflow-ai.vercel.app/verify/SID-${String(userId).padStart(6, '0')}`}
                 size={64}
                 bgColor="#ffffff"
                 fgColor="#0A2E24"

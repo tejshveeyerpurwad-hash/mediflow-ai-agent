@@ -425,7 +425,7 @@ router.get('/report', auth, checkRole(['admin']), logAudit('export_report', 'amb
     } catch (e) { /* ignore if table missing */ }
 
     res.header('Content-Type', 'text/csv');
-    res.attachment('swasthai_admin_report.csv');
+    res.attachment('mediflow_admin_report.csv');
     return res.send(csv);
   } catch (err) {
     console.error('Report generation error:', err);

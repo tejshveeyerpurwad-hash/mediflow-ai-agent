@@ -17,7 +17,7 @@ try {
   fallbackApp.get('/api/health', (_req, res) => {
     res.json({
       status: 'ok',
-      service: 'SwasthAI Guardian Backend (Vercel fallback)',
+      service: 'MediFlow AI Backend (Vercel fallback)',
       uptime: Math.floor(process.uptime()),
       timestamp: new Date().toISOString(),
       note: 'Full backend module failed to load. See server logs.',
@@ -28,7 +28,7 @@ try {
   fallbackApp.get('/api/health/detailed', (_req, res) => {
     res.json({
       status: 'ok',
-      service: 'SwasthAI Guardian Backend (Vercel fallback)',
+      service: 'MediFlow AI Backend (Vercel fallback)',
       uptime: Math.floor(process.uptime()),
       timestamp: new Date().toISOString(),
       moduleError: err.message,

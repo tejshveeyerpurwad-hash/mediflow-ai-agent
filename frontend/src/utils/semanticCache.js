@@ -10,7 +10,7 @@
  * Falls back to in-memory Map if IndexedDB is unavailable.
  */
 
-const DB_NAME = 'swasthai_cache';
+const DB_NAME = 'mediflow_cache';
 const DB_VERSION = 1;
 const STORES = {
   symptoms:  'symptoms_cache',   // TTL: 24h

@@ -1,10 +1,10 @@
-# Contributing to SwasthAI Guardian
+# Contributing to MediFlow AI
 
 ## Introduction
 
-Thank you for your interest in contributing to SwasthAI Guardian! This document provides guidelines for contributing to the project, whether you're reporting bugs, suggesting features, improving documentation, or submitting code changes.
+Thank you for your interest in contributing to MediFlow AI! This document provides guidelines for contributing to the project, whether you're reporting bugs, suggesting features, improving documentation, or submitting code changes.
 
-SwasthAI Guardian is a mission-driven project building healthcare infrastructure for rural India. Every contribution helps move us closer to a future where no village is more than a tap away from quality healthcare.
+MediFlow AI is a mission-driven project building healthcare infrastructure for rural India. Every contribution helps move us closer to a future where no village is more than a tap away from quality healthcare.
 
 ---
 
@@ -30,8 +30,8 @@ This project is governed by the following principles:
 
 ```bash
 # Clone the repository
-git clone https://github.com/dgboy-ai/SwasthAI-Guardian-Platform.git
-cd SwasthAI-Guardian-Platform
+git clone https://github.com/dgboy-ai/MediFlow AI-Guardian-Platform.git
+cd MediFlow AI-Guardian-Platform
 
 # Copy environment template
 cp .env.example .env
@@ -49,8 +49,8 @@ docker-compose up --build
 
 ### Reporting Bugs
 
-1. Check the [issue tracker](https://github.com/dgboy-ai/SwasthAI-Guardian-Platform/issues) for existing reports
-2. If none exists, [create a new issue](https://github.com/dgboy-ai/SwasthAI-Guardian-Platform/issues/new)
+1. Check the [issue tracker](https://github.com/dgboy-ai/MediFlow AI-Guardian-Platform/issues) for existing reports
+2. If none exists, [create a new issue](https://github.com/dgboy-ai/MediFlow AI-Guardian-Platform/issues/new)
 3. Include:
    - Clear title and description
    - Steps to reproduce
@@ -61,7 +61,7 @@ docker-compose up --build
 
 ### Suggesting Features
 
-1. [Open a feature request](https://github.com/dgboy-ai/SwasthAI-Guardian-Platform/issues/new)
+1. [Open a feature request](https://github.com/dgboy-ai/MediFlow AI-Guardian-Platform/issues/new)
 2. Describe the problem you're solving, not just the solution
 3. Explain how this benefits rural health workers or patients
 4. Include any relevant context or research
@@ -172,7 +172,7 @@ cd ai-service && python test_guardrail.py && python test_rural.py
 ## Project Structure
 
 ```
-SwasthAI-Guardian/
+MediFlow AI-Guardian/
 ├── frontend/               # React + Vite PWA
 ├── backend/                # Express.js REST API
 ├── ai-service/             # FastAPI AI microservice
@@ -187,9 +187,9 @@ SwasthAI-Guardian/
 
 ## Questions?
 
-- Open a [discussion](https://github.com/dgboy-ai/SwasthAI-Guardian-Platform/discussions)
+- Open a [discussion](https://github.com/dgboy-ai/MediFlow AI-Guardian-Platform/discussions)
 - Check existing [docs](docs/) for detailed technical information
-- File an [issue](https://github.com/dgboy-ai/SwasthAI-Guardian-Platform/issues) for bugs or feature requests
+- File an [issue](https://github.com/dgboy-ai/MediFlow AI-Guardian-Platform/issues) for bugs or feature requests
 
 ---
 

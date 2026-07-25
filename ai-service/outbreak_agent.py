@@ -1,7 +1,7 @@
 """
 Agentic Outbreak Monitor — Autonomous public health intelligence loop.
 Runs every 30 minutes in a background thread.
-Queries the SwasthAI backend for recent symptom clusters by village.
+Queries the MediFlow AI backend for recent symptom clusters by village.
 Calls Groq Llama-3 to classify: real outbreak vs seasonal noise.
 If outbreak confirmed (>70% confidence), posts to backend → DynamoDB outbreak_telemetry.
 

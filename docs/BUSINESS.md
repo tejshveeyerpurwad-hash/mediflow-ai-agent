@@ -2,7 +2,7 @@
 
 ## Introduction
 
-SwasthAI Guardian is a **B2B SaaS platform** for rural public health networks. It serves three primary customer segments: district health administrations (CMO offices), NGOs operating in rural health, and state-level health missions. The platform replaces paper-based workflows with AI-powered digital infrastructure, reducing costs, improving clinical outcomes, and enabling data-driven policy decisions.
+MediFlow AI is a **B2B SaaS platform** for rural public health networks. It serves three primary customer segments: district health administrations (CMO offices), NGOs operating in rural health, and state-level health missions. The platform replaces paper-based workflows with AI-powered digital infrastructure, reducing costs, improving clinical outcomes, and enabling data-driven policy decisions.
 
 ---
 
@@ -28,7 +28,7 @@ SwasthAI Guardian is a **B2B SaaS platform** for rural public health networks. I
 | E-Hospital (Govt) | Government-backed, free | Not offline-first, no AI |
 | Practo | Strong brand, urban focus | No rural/offline support |
 | mWellness | Basic tracking | No AI diagnostics |
-| SwasthAI | **Offline-first, AI-powered, dual-DB** | Early stage, limited brand |
+| MediFlow AI | **Offline-first, AI-powered, dual-DB** | Early stage, limited brand |
 
 ---
 

@@ -46,7 +46,7 @@ if (isProduction && cluster.isPrimary && maxWorkers > 1) {
   const AI_SERVICE_URL = process.env.AI_SERVICE_URL || 'http://127.0.0.1:8000';
 
   const server = app.listen(PORT, '0.0.0.0', () => {
-    console.log(`\ud83d\ude80 SwasthAI Core active on port ${PORT} (Mode: ${process.env.NODE_ENV || 'development'})`);
+    console.log(`\ud83d\ude80 MediFlow AI Core active on port ${PORT} (Mode: ${process.env.NODE_ENV || 'development'})`);
   });
 
   const wss = new WebSocketServer({ noServer: true });

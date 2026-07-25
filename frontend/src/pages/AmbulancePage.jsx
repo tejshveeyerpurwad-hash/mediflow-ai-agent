@@ -48,7 +48,7 @@ export default function AmbulancePage() {
     try {
       const res = await fetch(
         `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`,
-        { headers: { 'Accept-Language': 'en', 'User-Agent': 'SwasthAIGuardian/1.0 (rural-health)' } }
+        { headers: { 'Accept-Language': 'en', 'User-Agent': 'MediFlowAI/1.0 (rural-health)' } }
       );
       const data = await res.json();
       const addr = data.address || {};

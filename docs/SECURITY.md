@@ -2,7 +2,7 @@
 
 ## Introduction
 
-SwasthAI Guardian handles sensitive healthcare data for rural populations, including personal health information (PHI), Aadhaar numbers, and clinical records. Security and privacy are foundational to the platform's design, not afterthoughts. This document outlines the security architecture, compliance standards, data protection measures, and operational security practices.
+MediFlow AI handles sensitive healthcare data for rural populations, including personal health information (PHI), Aadhaar numbers, and clinical records. Security and privacy are foundational to the platform's design, not afterthoughts. This document outlines the security architecture, compliance standards, data protection measures, and operational security practices.
 
 ---
 

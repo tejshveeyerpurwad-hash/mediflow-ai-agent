@@ -23,7 +23,7 @@ RUN mkdir -p /app/data
 EXPOSE 5000
 
 # Use non-root user for security
-RUN addgroup -S swasthai && adduser -S swasthai -G swasthai
-USER swasthai
+RUN addgroup -S mediflow && adduser -S mediflow -G mediflow
+USER mediflow
 
 CMD ["node", "server.js"]

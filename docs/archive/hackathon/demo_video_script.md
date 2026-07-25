@@ -1,8 +1,8 @@
-# SwasthAI Guardian — Demo Video Script
+# MediFlow AI — Demo Video Script
 
 **Track:** B2B SaaS · AWS Databases  
 **Duration:** 3 minutes (180 seconds)  
-**URL:** `https://swasthai-guardian-platform-0jsb.onrender.com` (deployed on Vercel + Render)
+**URL:** `https://MediFlow AI-guardian-platform-0jsb.onrender.com` (deployed on Vercel + Render)
 
 ---
 
@@ -10,9 +10,9 @@
 
 | Time | Visual (Screen) | Audio (Voiceover) | Transition / Cut |
 |------|-----------------|-------------------|------------------|
-| 0:00–0:05 | **IntroFlow splash** — animated logo, "SwasthAI Guardian" fades in with tagline "National Rural Health Intelligence Platform" | _Music fades in. Voiceover: "India's 600 million rural citizens depend on 1.4 million ASHA workers with paper registers and no AI."_ | Fade from black |
+| 0:00–0:05 | **IntroFlow splash** — animated logo, "MediFlow AI" fades in with tagline "National Rural Health Intelligence Platform" | _Music fades in. Voiceover: "India's 600 million rural citizens depend on 1.4 million ASHA workers with paper registers and no AI."_ | Fade from black |
 | 0:05–0:12 | **IntroFlow Language Selection** — 6 language cards (Hindi, English, Bengali, Marathi, Tamil, Telugu) pulse subtly | _"Village clinics lack specialists. Outbreaks spread undetected. Ambulance dispatch has no real-time tracking."_ | Smooth scroll down on same page |
-| 0:12–0:20 | **IntroFlow Services overview** — grid of 6 service icons: AI Diagnosis, Ambulance SOS, Maternal Health, Child Nutrition, Government Schemes, Offline-First | _"SwasthAI Guardian is a B2B platform that solves all of this with AI-powered disease surveillance, offline-first medical access, and autonomous outbreak detection."_ | Fade to next screen |
+| 0:12–0:20 | **IntroFlow Services overview** — grid of 6 service icons: AI Diagnosis, Ambulance SOS, Maternal Health, Child Nutrition, Government Schemes, Offline-First | _"MediFlow AI is a B2B platform that solves all of this with AI-powered disease surveillance, offline-first medical access, and autonomous outbreak detection."_ | Fade to next screen |
 
 ---
 
@@ -71,7 +71,7 @@
 | 2:30–2:42 | **Demo Page — B2B Monetization** — 3 pricing tiers: "NGO Starter (Free)", "District Command (₹15,000/month)", "State Enterprise (Custom)". Cursor highlights District Command badge "Recommended". | _"Our B2B SaaS model: NGO Starter is free for community setups. District Command at ₹15,000 per month unlocks the autonomous outbreak AI loop, live SSE admin feed, and custom threshold configurations. State Enterprise offers multi-district scaling with dedicated Aurora cluster pools."_ | Scroll down on Demo Page |
 | 2:42–2:50 | **Monitoring Dashboard** (`/monitor`) — AWS stack health: 6 stack indicators (Aurora, DynamoDB, SW, IndexedDB, Express, FastAPI), live latency gauge <200ms, event stream scrolling, district simulation panel. | _"The monitoring dashboard proves production readiness: full stack health with real-time latency metrics, event streams, and even a district simulation engine for load testing."_ | Page transition |
 | 2:50–2:55 | **Admin — Issue District Alert** — Cursor clicks "Issue District Alert" button. Confirmation toast appears. Then **Download District CMO Report** — CSV downloads. | _"Admins can issue district-wide alerts and download CMO-ready CSV reports — built for real government workflows."_ | Cursor actions on already-visible Admin view |
-| 2:55–3:00 | **Closing Card** — Logo centered, tagline: "SwasthAI Guardian — Health Intelligence for Rural India", URL, "Track 2 · B2B SaaS · AWS Databases". Fade to black. | _"SwasthAI Guardian: AI-powered health intelligence for rural India. Built for B2B, powered by AWS."_ | Fade to black |
+| 2:55–3:00 | **Closing Card** — Logo centered, tagline: "MediFlow AI — Health Intelligence for Rural India", URL, "Track 2 · B2B SaaS · AWS Databases". Fade to black. | _"MediFlow AI: AI-powered health intelligence for rural India. Built for B2B, powered by AWS."_ | Fade to black |
 
 ---
 
@@ -133,7 +133,7 @@ If evaluators require AWS Console screenshots to verify database usage, insert t
 
 ### Environment Setup
 - **Browser:** Chrome/Edge incognito window (1920×1080)
-- **URL:** `https://swasthai-guardian-platform-0jsb.onrender.com`
+- **URL:** `https://MediFlow AI-guardian-platform-0jsb.onrender.com`
 - **Recording tool:** OBS Studio or built-in screen recorder
 - **FPS:** 30
 - **Resolution:** 1920×1080
@@ -142,7 +142,7 @@ If evaluators require AWS Console screenshots to verify database usage, insert t
 The app comes with pre-seeded data:
 - **Villager:** Phone `9876543210` / Password `Demo@1234`
 - **ASHA Worker:** Phone `9876543211` / Password `Demo@1234`
-- **Admin:** Email `admin@swasthai.in` / Password `Demo@1234`
+- **Admin:** Email `admin@MediFlow AI.in` / Password `Demo@1234`
 - **Demo Tour Toggle:** In Admin sidebar (bottom-left toggle), seeds 30+ records
 
 ### Cursor Movement Tips

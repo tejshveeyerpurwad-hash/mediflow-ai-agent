@@ -6,11 +6,11 @@ export default function AboutPage() {
       <Navbar />
       <div className="max-w-4xl mx-auto px-6 pt-32 pb-24">
         <p className="text-[10px] font-black uppercase tracking-[0.4em] text-emerald-600 mb-3">About Us</p>
-        <h1 className="text-4xl lg:text-5xl font-black text-slate-900 tracking-tighter mb-8">SwasthAI Guardian</h1>
+        <h1 className="text-4xl lg:text-5xl font-black text-slate-900 tracking-tighter mb-8">MediFlow AI</h1>
 
         <div className="prose prose-slate max-w-none">
           <p className="text-lg text-slate-600 leading-relaxed">
-            SwasthAI Guardian is an AI-powered rural health connectivity platform built for Bharat's 600M+ rural population. We bridge the gap between village-level ASHA workers, district health officials, and state-level policymakers using a real-time, offline-first, multi-modal AI stack.
+            MediFlow AI is an AI-powered rural health connectivity platform built for Bharat's 600M+ rural population. We bridge the gap between village-level ASHA workers, district health officials, and state-level policymakers using a real-time, offline-first, multi-modal AI stack.
           </p>
 
           <h2 className="text-2xl font-black text-slate-900 mt-12 mb-4">The Problem</h2>
@@ -20,7 +20,7 @@ export default function AboutPage() {
 
           <h2 className="text-2xl font-black text-slate-900 mt-12 mb-4">Our Solution</h2>
           <p className="text-slate-600 leading-relaxed">
-            SwasthAI Guardian provides a unified AI-powered platform connecting villagers, ASHA workers, NGOs, and district health officials. Key capabilities include:
+            MediFlow AI provides a unified AI-powered platform connecting villagers, ASHA workers, NGOs, and district health officials. Key capabilities include:
           </p>
           <ul className="list-disc pl-6 text-slate-600 space-y-2 mt-4">
             <li><strong>AI Symptom Checker</strong> — Offline-first ML model (101 diseases, 64.8% accuracy, 7 languages)</li>

@@ -1,4 +1,4 @@
-const STORAGE_KEY = 'swasthai_disha_consent_v1';
+const STORAGE_KEY = 'mediflow_disha_consent_v1';
 
 export function useConsentGiven() {
   return localStorage.getItem(STORAGE_KEY) === 'true';

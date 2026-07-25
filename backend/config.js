@@ -13,7 +13,7 @@ export function getJwtSecret() {
   if (isProduction) {
     throw new Error('JWT_SECRET is required in production');
   }
-  return 'dev-only-swasthai-jwt-not-for-production';
+  return 'dev-only-mediflow-jwt-not-for-production';
 }
 
 export function getAgentSecret() {

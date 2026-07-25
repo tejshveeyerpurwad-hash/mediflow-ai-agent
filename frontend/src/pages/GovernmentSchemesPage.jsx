@@ -23,7 +23,7 @@ function getCat(category, t) {
 }
 
 // ── Offline cache ─────────────────────────────────────────────────────────────
-const CACHE_KEY = 'swasthai_schemes_cache_v2';
+const CACHE_KEY = 'mediflow_schemes_cache_v2';
 function saveCache(data) {
   try { localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), data })); } catch (_) {}
 }

@@ -1,9 +1,9 @@
 /**
- * Gorgeous, self-contained toast notification utility for SwasthAI Guardian.
+ * Gorgeous, self-contained toast notification utility for MediFlow AI.
  * Injects clean, Tailwind-styled floating notifications into the DOM.
  */
 export function showToast(message, type = 'success') {
-  const containerId = 'swasthai-toast-container';
+  const containerId = 'mediflow-toast-container';
   let container = document.getElementById(containerId);
   if (!container) {
     container = document.createElement('div');

@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This guide covers production deployment of SwasthAI Guardian across all environments. The architecture uses three hosting providers — **Vercel** (frontend), **Render** (backend + AI), and **AWS** (databases) — to maximize free-tier eligibility while maintaining production-grade reliability.
+This guide covers production deployment of MediFlow AI across all environments. The architecture uses three hosting providers — **Vercel** (frontend), **Render** (backend + AI), and **AWS** (databases) — to maximize free-tier eligibility while maintaining production-grade reliability.
 
 ---
 
@@ -155,7 +155,7 @@ The existing `frontend/vercel.json` configures:
 | `AADHAAR_SALT` | Yes | Generate | 32+ char random string |
 | `AGENT_SECRET` | Yes | Generate | 32+ char random string (shared with AI) |
 | `GROQ_API_KEY` | Yes | Groq Console | API key for LLM inference |
-| `AI_SERVICE_URL` | Yes | Render | e.g. `https://swasthai-ai.onrender.com` |
+| `AI_SERVICE_URL` | Yes | Render | e.g. `https://MediFlow AI-ai.onrender.com` |
 | `AWS_REGION` | Yes | Static | `ap-south-1` |
 | `AWS_ACCESS_KEY_ID` | Yes | IAM | DynamoDB access key |
 | `AWS_SECRET_ACCESS_KEY` | Yes | IAM | DynamoDB secret key |
@@ -177,7 +177,7 @@ Render supports health check paths. Configure:
 
 1. In Render Dashboard → **New +** → **Web Service**
 2. Connect your GitHub repository
-3. Set **Name**: `swasthai-backend`
+3. Set **Name**: `MediFlow AI-backend`
 4. Set **Root Directory**: `backend`
 5. Set **Build Command**: `npm install`
 6. Set **Start Command**: `npm start`
@@ -214,7 +214,7 @@ The backend includes a built-in keep-alive pinger that hits the AI service `/hea
 - System dependencies: `curl`, `gcc`
 - Python dependencies from `requirements.txt`
 - Dataset generation + model training at build time
-- Non-root user (`swasthai`) for security
+- Non-root user (`MediFlow AI`) for security
 - Single worker Uvicorn server
 
 ### Environment Variables
@@ -229,7 +229,7 @@ The backend includes a built-in keep-alive pinger that hits the AI service `/hea
 
 1. In Render Dashboard → **New +** → **Web Service**
 2. Connect repository
-3. Set **Name**: `swasthai-ai-service`
+3. Set **Name**: `MediFlow AI-ai-service`
 4. Set **Runtime**: `Docker`
 5. **Docker Context**: `ai-service`
 6. **Dockerfile Path**: `ai-service/Dockerfile`
@@ -263,9 +263,9 @@ The existing `docker-compose.yml` orchestrates all three services:
 
 | Service | Container Name | Port | Depends On | Health Check |
 |---------|---------------|------|------------|--------------|
-| `ai-service` | `swasthai_ai` | `8000` | — | `GET /health` (30s interval) |
-| `backend` | `swasthai_backend` | `5000` | ai-service (healthy) | `GET /api/health` (30s interval) |
-| `frontend` | `swasthai_frontend` | `80` | backend (healthy) | — |
+| `ai-service` | `MediFlow AI_ai` | `8000` | — | `GET /health` (30s interval) |
+| `backend` | `MediFlow AI_backend` | `5000` | ai-service (healthy) | `GET /api/health` (30s interval) |
+| `frontend` | `MediFlow AI_frontend` | `80` | backend (healthy) | — |
 
 ### Dockerfiles
 
@@ -344,7 +344,7 @@ postgresql://postgres:<password>@<cluster-endpoint>:5432/postgres
 
 | Resource | Policy | Purpose |
 |----------|--------|---------|
-| User: `swasthai-app-user` | `AmazonDynamoDBFullAccess` | Application database access |
+| User: `MediFlow AI-app-user` | `AmazonDynamoDBFullAccess` | Application database access |
 | Access key | Programmatic access | Used in `AWS_ACCESS_KEY_ID` / `AWS_SECRET_ACCESS_KEY` |
 
 ### Security Group
@@ -370,7 +370,7 @@ postgresql://postgres:<password>@<cluster-endpoint>:5432/postgres
 ### Backend Deployment
 
 - [ ] Deploy AI Service first (Render)
-- [ ] Copy AI Service URL (e.g., `https://swasthai-ai.onrender.com`)
+- [ ] Copy AI Service URL (e.g., `https://MediFlow AI-ai.onrender.com`)
 - [ ] Deploy Backend (Render) with all env vars
 - [ ] Run `node seed.js` to populate initial data
 - [ ] Verify `GET /api/health/detailed` returns all services online
@@ -557,14 +557,14 @@ The project includes a `render.yaml` for infrastructure-as-code deployment on Re
 ```yaml
 services:
   - type: web            # Backend (Node.js)
-    name: swasthai-guardian
+    name: MediFlow AI-guardian
     runtime: node
     buildCommand: npm run build
     startCommand: npm start
     # ... env vars, disk mount for SQLite
 
   - type: web            # AI Service (Docker)
-    name: swasthai-ai-service
+    name: MediFlow AI-ai-service
     runtime: docker
     dockerContext: ai-service
     dockerfilePath: ai-service/Dockerfile

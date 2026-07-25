@@ -80,7 +80,7 @@ export default function SchemeDetailPage() {
     if (!token) { navigate('/login'); return; }
 
     // Try from cache first for instant display, then background-refresh
-    const CACHE_KEY = 'swasthai_schemes_cache_v2';
+    const CACHE_KEY = 'mediflow_schemes_cache_v2';
     try {
       const raw = localStorage.getItem(CACHE_KEY);
       if (raw) {

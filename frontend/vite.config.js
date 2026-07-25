@@ -18,9 +18,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
       manifest: {
-        name: 'SwasthAI Guardian',
-        short_name: 'SwasthAI',
-        description: 'AI-powered rural health guardian for villages across India. Symptom checker, Sakhi AI, ambulance access & outbreak alerts.',
+        name: 'MediFlow AI',
+        short_name: 'MediFlow AI',
+        description: 'AI-powered rural health platform for villages across India. Symptom checker, Sakhi AI, ambulance access & outbreak alerts.',
         start_url: '/',
         display: 'standalone',
         orientation: 'portrait',

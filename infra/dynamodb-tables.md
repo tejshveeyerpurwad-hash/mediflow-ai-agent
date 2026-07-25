@@ -1,6 +1,6 @@
 # DynamoDB tables
 
-SwasthAI creates these tables automatically on backend startup when `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` are set:
+MediFlow AI creates these tables automatically on backend startup when `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` are set:
 
 - `outbreak_telemetry` (villageId + detectedAt, GSIs `disease-index`, `district-time-index`)
 - `sync_queues` (deviceId + queuedAt, GSI `status-index`)

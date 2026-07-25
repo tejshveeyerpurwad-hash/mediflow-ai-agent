@@ -2,7 +2,7 @@
 
 ## Introduction
 
-SwasthAI Guardian's AI system is a **hybrid edge-to-cloud intelligence platform** designed for clinical reliability in low-connectivity rural settings. It combines browser-side neural inference, cloud-based LLM reasoning, and autonomous agentic loops to deliver diagnostic assistance, clinical guidance, and outbreak detection — all while maintaining safety guarantees when confidence is low.
+MediFlow AI's system is a **hybrid edge-to-cloud intelligence platform** designed for clinical reliability in low-connectivity rural settings. It combines browser-side neural inference, cloud-based LLM reasoning, and autonomous agentic loops to deliver diagnostic assistance, clinical guidance, and outbreak detection — all while maintaining safety guarantees when confidence is low.
 
 ---
 

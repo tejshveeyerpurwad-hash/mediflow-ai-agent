@@ -1,6 +1,6 @@
-# 🏗️ System & Database Architecture — SwasthAI Guardian Platform
+# 🏗️ System & Database Architecture — MediFlow AI Platform
 
-This document describes the high-level system architecture and database design decisions of the SwasthAI Guardian Platform, illustrating how offline-first clients, backend APIs, relational databases, NoSQL event stores, and AI microservices interact.
+This document describes the high-level system architecture and database design decisions of the MediFlow AI Platform, illustrating how offline-first clients, backend APIs, relational databases, NoSQL event stores, and AI microservices interact.
 
 ---
 
@@ -56,12 +56,12 @@ graph LR
 
 ## 📦 Component Roles
 
-The SwasthAI architecture is divided into three specialized tiers, built for low-latency execution and zero-connectivity resilience:
+The MediFlow AI architecture is divided into three specialized tiers, built for low-latency execution and zero-connectivity resilience:
 
 | Tier | Tech Stack | Core Capability | Offline Resilience | Data Safety & Security |
 |---|---|---|---|---|
 | **Client Edge** | React, Vite, IndexedDB, ONNX | **Interactive Clinician PWA** | IndexedDB Event Replay Engine & Local ONNX Triage | SHA-256 local auth hash; On-device `<200KB` image compression |
-| **Backend Gateway** | Express.js, Node.js | **Unified REST API & SSE Bus** | Handles transaction sync replays dynamically | Centralized IDOR [policy.js](file:///c:/projects/SwasthAI-Guardian-Platform/backend/middleware/policy.js); 3-retry DLQ safeguard |
+| **Backend Gateway** | Express.js, Node.js | **Unified REST API & SSE Bus** | Handles transaction sync replays dynamically | Centralized IDOR [policy.js](file:///c:/projects/MediFlow AI-Guardian-Platform/backend/middleware/policy.js); 3-retry DLQ safeguard |
 | **AI Microservice** | FastAPI, Python, PyTorch | **Autonomous Agents & LLMs** | Rules-based local fallbacks for edge-classification | Tokenized Groq API keys; Closed-loop agent validation |
 
 ---
@@ -73,7 +73,7 @@ The SwasthAI architecture is divided into three specialized tiers, built for low
 - **Client Security**: Validates offline sessions via local SHA-256 credential hashes.
 
 ### ⚙️ Backend Gateway (Express.js)
-- **Scope Isolation**: Centralized [policy.js](file:///c:/projects/SwasthAI-Guardian-Platform/backend/middleware/policy.js) blocks unauthorized village/role access.
+- **Scope Isolation**: Centralized [policy.js](file:///c:/projects/MediFlow AI-Guardian-Platform/backend/middleware/policy.js) blocks unauthorized village/role access.
 - **Event Dispatcher**: Processes non-blocking event loops out-of-band with a **3-attempt retry loop**.
 - **DLQ Safeguard**: Logs failed event payloads to a capped 100-item DLQ; broadcasts live alerts via SSE.
 - **Watchdog Daemon**: Scans microservice health and Outbreak Agent state every 30s.
@@ -87,10 +87,10 @@ The SwasthAI architecture is divided into three specialized tiers, built for low
 
 ## 🗄️ Database Strategy & AWS Design Decisions
 
-Most apps use one database for everything. SwasthAI uses a hybrid approach: a local **SQLite** database as an offline edge node and local development fallback, paired with a dual **AWS Cloud** configuration in production.
+Most apps use one database for everything. MediFlow AI uses a hybrid approach: a local **SQLite** database as an offline edge node and local development fallback, paired with a dual **AWS Cloud** configuration in production.
 
 ### The Local/Edge Database Strategy (SQLite Fallback)
-To ensure the app remains fully functional with zero initial setup for evaluators or developers, and to simulate offline client-side sync environments, SwasthAI utilizes an embedded **SQLite** engine. 
+To ensure the app remains fully functional with zero initial setup for evaluators or developers, and to simulate offline client-side sync environments, MediFlow AI utilizes an embedded **SQLite** engine. 
 * **Local Dev & Evaluation**: When run locally without AWS credentials, the backend automatically boots with SQLite, using the exact same schema structure as our production Aurora database.
 * **Production**: When deployed to cloud environments, the backend dynamically connects to **Amazon Aurora PostgreSQL** via the `DATABASE_URL` connection pool.
 
@@ -192,7 +192,7 @@ Every DynamoDB table is designed around specific access patterns to support zero
 ### The Agentic Outbreak Loop (What No Other Submission Has)
 
 > [!TIP]
-> **Autonomous Agent Architecture**: Unlike traditional dashboards requiring manual scans, SwasthAI uses a completely closed-loop background agent coordination model.
+> **Autonomous Agent Architecture**: Unlike traditional dashboards requiring manual scans, MediFlow AI uses a completely closed-loop background agent coordination model.
 
 This is a fully autonomous AI agent running as a background service:
 

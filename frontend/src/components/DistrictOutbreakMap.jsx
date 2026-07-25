@@ -369,7 +369,7 @@ export default function DistrictOutbreakMap({ onNodeSelect, activeVillageId = nu
         {/* MAP TITLE Watermark */}
         <div className="absolute bottom-4 left-4 z-20 flex flex-col leading-none pointer-events-none bg-slate-950/80 backdrop-blur-sm px-3.5 py-2.5 rounded-2xl border border-slate-900 shadow-md">
           <span className="text-xl font-black text-slate-100 opacity-90 tracking-tighter uppercase">Varanasi Division</span>
-          <span className="text-[8px] font-black text-emerald-400 opacity-90 uppercase tracking-widest mt-1">SwasthAI Node Network Map</span>
+          <span className="text-[8px] font-black text-emerald-400 opacity-90 uppercase tracking-widest mt-1">MediFlow AI Node Network Map</span>
         </div>
       </div>
 

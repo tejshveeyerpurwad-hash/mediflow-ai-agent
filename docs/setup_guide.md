@@ -2,10 +2,10 @@
 
 > **For evaluators who just want to test**: The live app is already deployed.
 > ```
-> https://swasth-ai-guardian-platform.vercel.app
+> https://mediflow-ai.vercel.app
 > ```
 > Login: select any role → enter any phone number → OTP: `1234`
-> Full AWS health status: `GET https://swasthai-guardian-platform-0jsb.onrender.com/api/health/detailed`
+> Full AWS health status: `GET https://MediFlow AI-guardian-platform-0jsb.onrender.com/api/health/detailed`
 
 ---
 
@@ -103,7 +103,7 @@ AWS_REGION=ap-south-1
 AWS_ACCESS_KEY_ID=<your IAM key>
 AWS_SECRET_ACCESS_KEY=<your IAM secret>
 # Aurora PostgreSQL connection string (overrides local SQLite when set)
-DATABASE_URL=postgresql://user:password@your-aurora-cluster.ap-south-1.rds.amazonaws.com:5432/swasthai
+DATABASE_URL=postgresql://user:password@your-aurora-cluster.ap-south-1.rds.amazonaws.com:5432/MediFlow AI
 
 # ── Performance ───────────────────────────────────────────────────────────────
 # Use 1 on Render/Fargate free tier to stay within memory limits
@@ -121,4 +121,4 @@ NODE_CLUSTER_WORKERS=1
 
 ---
 
-> **Why this matters for evaluation**: The codebase is production-ready, not a prototype. With automated Docker multi-stage builds, non-root security compliance, integrated health-checks, and unified dev/production schemas, SwasthAI can be reliably deployed by a district health officer in under two hours.
+> **Why this matters for evaluation**: The codebase is production-ready, not a prototype. With automated Docker multi-stage builds, non-root security compliance, integrated health-checks, and unified dev/production schemas, MediFlow AI can be reliably deployed by a district health officer in under two hours.

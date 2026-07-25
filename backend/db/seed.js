@@ -398,15 +398,15 @@ export async function seedData(db, pool, usingSQLite, bcrypt) {
     if (!adminCheck) {
       await db.run(
         'INSERT OR IGNORE INTO users (phone, email, username, name, password, role, "villageId") VALUES (?, ?, ?, ?, ?, ?, ?)',
-        ['9876543210', 'villager@swasthai.in', 'demo_villager', 'Ramesh Kumar', hash, 'villager', 'v101']
+        ['9876543210', 'villager@mediflow-ai.demo', 'demo_villager', 'Ramesh Kumar', hash, 'villager', 'v101']
       );
       await db.run(
         'INSERT OR IGNORE INTO users (phone, email, username, name, password, role, "villageId") VALUES (?, ?, ?, ?, ?, ?, ?)',
-        ['9876543211', 'asha@swasthai.in', 'demo_asha', 'Sita Devi (ASHA)', hash, 'ngo', 'v101']
+        ['9876543211', 'asha@mediflow-ai.demo', 'demo_asha', 'Sita Devi (ASHA)', hash, 'ngo', 'v101']
       );
       await db.run(
         'INSERT OR IGNORE INTO users (phone, email, username, name, password, role, "villageId") VALUES (?, ?, ?, ?, ?, ?, ?)',
-        ['9876543212', 'admin@swasthai.in', 'demo_admin', 'CMO Varanasi', hash, 'admin', null]
+        ['9876543212', 'admin@mediflow-ai.demo', 'demo_admin', 'CMO Varanasi', hash, 'admin', null]
       );
       console.log('   👤 Default SQLite demo accounts seeded.');
     }
@@ -486,9 +486,9 @@ export async function seedDemoData(db, usingSQLite, bcrypt) {
   );
 
   // 2. Seed users next (referencing villageId)
-  await db.run('INSERT OR IGNORE INTO users (phone, email, username, name, password, role, "villageId") VALUES (?, ?, ?, ?, ?, ?, ?)', ['9876543210', 'villager@swasthai.in', 'demo_villager', 'Ramesh Kumar', hash, 'villager', 'v101']);
-  await db.run('INSERT OR IGNORE INTO users (phone, email, username, name, password, role, "villageId") VALUES (?, ?, ?, ?, ?, ?, ?)', ['9876543211', 'asha@swasthai.in', 'demo_asha', 'Sita Devi (ASHA)', hash, 'ngo', 'v101']);
-  await db.run('INSERT OR IGNORE INTO users (phone, email, username, name, password, role, "villageId") VALUES (?, ?, ?, ?, ?, ?, ?)', ['9876543212', 'admin@swasthai.in', 'demo_admin', 'CMO Varanasi', hash, 'admin', null]);
+  await db.run('INSERT OR IGNORE INTO users (phone, email, username, name, password, role, "villageId") VALUES (?, ?, ?, ?, ?, ?, ?)', ['9876543210', 'villager@mediflow-ai.demo', 'demo_villager', 'Ramesh Kumar', hash, 'villager', 'v101']);
+  await db.run('INSERT OR IGNORE INTO users (phone, email, username, name, password, role, "villageId") VALUES (?, ?, ?, ?, ?, ?, ?)', ['9876543211', 'asha@mediflow-ai.demo', 'demo_asha', 'Sita Devi (ASHA)', hash, 'ngo', 'v101']);
+  await db.run('INSERT OR IGNORE INTO users (phone, email, username, name, password, role, "villageId") VALUES (?, ?, ?, ?, ?, ?, ?)', ['9876543212', 'admin@mediflow-ai.demo', 'demo_admin', 'CMO Varanasi', hash, 'admin', null]);
 
   // 3. Resolve user IDs dynamically to avoid hardcoded Foreign Key breaks
   const villagerAcc = await db.get("SELECT id FROM users WHERE username = 'demo_villager'");

@@ -94,4 +94,4 @@ Voice output via SpeechSynthesisUtterance (🔊 button per message)
 ```
 
 > [!IMPORTANT]
-> **Architectural Significance**: SwasthAI avoids dependencies on simple third-party prompt-wrapper designs by hosting its own intelligence layer. By combining local, edge-ready ONNX diagnostic classifiers with a calibrated, memory-aware cloud RAG system, the platform ensures clinical safety. When fully offline, it degrades gracefully to local heuristic fallback rules—delivering functionality under severe network limitations.
+> **Architectural Significance**: MediFlow AI avoids dependencies on simple third-party prompt-wrapper designs by hosting its own intelligence layer. By combining local, edge-ready ONNX diagnostic classifiers with a calibrated, memory-aware cloud RAG system, the platform ensures clinical safety. When fully offline, it degrades gracefully to local heuristic fallback rules—delivering functionality under severe network limitations.

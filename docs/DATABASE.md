@@ -2,7 +2,7 @@
 
 ## Introduction
 
-SwasthAI Guardian employs a **dual-database architecture** that deliberately separates concerns:
+MediFlow AI employs a **dual-database architecture** that deliberately separates concerns:
 
 - **Amazon Aurora PostgreSQL** for ACID-compliant relational data (patient records, clinical profiles)
 - **Amazon DynamoDB** for high-throughput telemetry and event streams (outbreak alerts, sync logs)

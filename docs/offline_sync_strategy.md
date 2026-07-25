@@ -1,12 +1,12 @@
 # Offline Synchronization & Conflict Resolution Strategy
 
-This document outlines the architecture, idempotency controls, and conflict-resolution strategies used in the SwasthAI Guardian Platform to support offline-first operations in rural India (specifically optimized for high-latency, offline, or 2G network environments).
+This document outlines the architecture, idempotency controls, and conflict-resolution strategies used in the MediFlow AI Platform to support offline-first operations in rural India (specifically optimized for high-latency, offline, or 2G network environments).
 
 ---
 
 ## 1. Architecture Overview
 
-SwasthAI Guardian employs a **Local-First / Offline-Capable** transaction queue on the client, backed by **centralized relational (Aurora/SQLite)** and **non-relational (DynamoDB)** stores on the backend.
+MediFlow AI employs a **Local-First / Offline-Capable** transaction queue on the client, backed by **centralized relational (Aurora/SQLite)** and **non-relational (DynamoDB)** stores on the backend.
 
 ```
 [ Frontend Action ]

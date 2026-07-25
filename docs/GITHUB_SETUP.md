@@ -1,6 +1,6 @@
 # GitHub Repository Setup Guide
 
-This document provides a comprehensive guide for configuring the SwasthAI Guardian repository on GitHub for maximum discoverability, community engagement, and professional presentation.
+This document provides a comprehensive guide for configuring the MediFlow AI repository on GitHub for maximum discoverability, community engagement, and professional presentation.
 
 ---
 
@@ -17,7 +17,7 @@ Offline-first AI healthcare platform for rural India. AI symptom checker, outbre
 ### Full Description (for About section)
 
 ```
-SwasthAI Guardian is a production-grade, offline-first B2B healthcare intelligence platform built for rural public health networks. It combines edge AI (ONNX in-browser inference), autonomous outbreak detection (LLM-powered agent), and dual-database architecture (Aurora PostgreSQL + DynamoDB) to replace paper-based workflows with AI-powered digital infrastructure — all functioning fully without internet connectivity.
+MediFlow AI is a production-grade, offline-first B2B healthcare intelligence platform built for rural public health networks. It combines edge AI (ONNX in-browser inference), autonomous outbreak detection (LLM-powered agent), and dual-database architecture (Aurora PostgreSQL + DynamoDB) to replace paper-based workflows with AI-powered digital infrastructure — all functioning fully without internet connectivity.
 ```
 
 ---
@@ -27,7 +27,7 @@ SwasthAI Guardian is a production-grade, offline-first B2B healthcare intelligen
 Set the Website URL in the GitHub repository sidebar:
 
 ```
-https://swasth-ai-guardian-platform.vercel.app
+https://mediflow-ai.vercel.app
 ```
 
 This links to the live demo and appears prominently on the repository landing page.
@@ -96,7 +96,7 @@ The social preview image appears when the repository URL is shared on social med
 
 ### Design Guidelines
 
-1. **Logo** — SwasthAI Guardian logo centered at the top
+1. **Logo** — MediFlow AI logo centered at the top
 2. **Tagline** — "Offline-First AI Healthcare for Rural India"
 3. **Visual** — Clean design with the brand color palette (green primary, dark background)
 4. **Elements** — Optionally include: globe icon, heartbeat line, network nodes to represent offline-first connectivity
@@ -105,7 +105,7 @@ The social preview image appears when the repository URL is shared on social med
 ### Content
 
 ```
-Top-left:  SwasthAI Guardian logo
+Top-left:  MediFlow AI logo
 Center:    Tagline: "Offline-First AI Healthcare for Rural India"
 Bottom:    Key badges: AI · Offline-First · PWA · AWS · Open Source
 ```
@@ -140,7 +140,7 @@ Built with React, Node.js, FastAPI, AWS (Aurora + DynamoDB).
 
 ## Pinned Repositories Strategy
 
-Pinned repositories appear at the top of your GitHub profile and organization page. Since SwasthAI Guardian is a monorepo, consider these strategies:
+Pinned repositories appear at the top of your GitHub profile and organization page. Since MediFlow AI is a monorepo, consider these strategies:
 
 ### Option 1: Monorepo (Current)
 
@@ -156,11 +156,11 @@ As the project grows, extract reusable packages and pin them:
 
 | Repository | Description |
 |-----------|-------------|
-| `swasthai-guardian` | Main platform (monorepo) |
+| `MediFlow AI-guardian` | Main platform (monorepo) |
 | `symptomnet` | Multilingual disease classification model (ONNX) |
 | `sakhi-rag` | Clinical RAG engine with WHO/MoHFW guidelines |
 | `offline-sync-queue` | IndexedDB transactional sync queue library |
-| `swasthai-pwa-sdk` | Offline-first PWA toolkit for health apps |
+| `MediFlow AI-pwa-sdk` | Offline-first PWA toolkit for health apps |
 
 ### Current Recommendation
 
@@ -273,7 +273,7 @@ Enable GitHub Discussions for community engagement:
 
 Use GitHub Projects (the new Projects Experience) for roadmap tracking:
 
-### Suggested Board: "SwasthAI Guardian Roadmap"
+### Suggested Board: "MediFlow AI Roadmap"
 
 | Column | Purpose | Automation |
 |--------|---------|------------|
@@ -352,7 +352,7 @@ Add any other context about the problem here.
 ```markdown
 ---
 name: Feature Request
-about: Suggest an idea for SwasthAI Guardian
+about: Suggest an idea for MediFlow AI
 title: "[FEATURE] "
 labels: enhancement
 assignees: ''
@@ -385,13 +385,13 @@ Add any context, diagrams, or references (WHO guidelines, MoHFW protocols, etc.)
 blank_issues_enabled: false
 contact_links:
   - name: Documentation
-    url: https://github.com/dgboy-ai/SwasthAI-Guardian-Platform/tree/main/docs
+    url: https://github.com/dgboy-ai/MediFlow AI-Guardian-Platform/tree/main/docs
     about: Check our documentation before opening an issue
   - name: Security Issue
-    url: https://github.com/dgboy-ai/SwasthAI-Guardian-Platform/security/policy
+    url: https://github.com/dgboy-ai/MediFlow AI-Guardian-Platform/security/policy
     about: Report security vulnerabilities here
   - name: Discussions
-    url: https://github.com/dgboy-ai/SwasthAI-Guardian-Platform/discussions
+    url: https://github.com/dgboy-ai/MediFlow AI-Guardian-Platform/discussions
     about: Ask questions and discuss ideas in Discussions
 ```
 
@@ -459,7 +459,7 @@ Brief description of the changes.
 ## Our Pledge
 
 We as members, contributors, and leaders pledge to make participation in the
-SwasthAI Guardian community a harassment-free experience for everyone,
+MediFlow AI community a harassment-free experience for everyone,
 regardless of age, body size, visible or invisible disability, ethnicity,
 sex characteristics, gender identity and expression, level of experience,
 education, socio-economic status, nationality, personal appearance, race,
@@ -522,17 +522,17 @@ https://www.contributor-covenant.org/version/2/1/code_of_conduct.html.
 ## Where to Get Help
 
 ### Documentation
-Start with our [documentation](https://github.com/dgboy-ai/SwasthAI-Guardian-Platform/tree/main/docs).
+Start with our [documentation](https://github.com/dgboy-ai/MediFlow AI-Guardian-Platform/tree/main/docs).
 It covers architecture, API reference, deployment, and contributing.
 
 ### GitHub Discussions
-Ask questions and share ideas in [Discussions](https://github.com/dgboy-ai/SwasthAI-Guardian-Platform/discussions).
+Ask questions and share ideas in [Discussions](https://github.com/dgboy-ai/MediFlow AI-Guardian-Platform/discussions).
 
 ### Bug Reports
-Open a [bug report](https://github.com/dgboy-ai/SwasthAI-Guardian-Platform/issues/new?template=bug_report.md).
+Open a [bug report](https://github.com/dgboy-ai/MediFlow AI-Guardian-Platform/issues/new?template=bug_report.md).
 
 ### Feature Requests
-Suggest new features via [feature request](https://github.com/dgboy-ai/SwasthAI-Guardian-Platform/issues/new?template=feature_request.md).
+Suggest new features via [feature request](https://github.com/dgboy-ai/MediFlow AI-Guardian-Platform/issues/new?template=feature_request.md).
 
 ### Security Vulnerabilities
 Report security issues to tejshveeyerpurwad@gmail.com. Do not open public issues.

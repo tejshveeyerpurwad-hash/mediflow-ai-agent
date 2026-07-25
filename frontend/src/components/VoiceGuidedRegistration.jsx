@@ -5,7 +5,7 @@ import useTextToSpeech from '../hooks/useTextToSpeech';
 
 const GUIDANCE_PROMPTS = {
   en: {
-    welcome: 'Welcome to SwasthAI Guardian. Let us help you create your account. Please say your name.',
+    welcome: 'Welcome to MediFlow AI. Let us help you create your account. Please say your name.',
     name: 'Please say your full name.',
     phone: 'Please say your 10-digit mobile number.',
     village: 'Please say your village or area name.',
@@ -13,7 +13,7 @@ const GUIDANCE_PROMPTS = {
     complete: 'Thank you. Your account is being created.',
   },
   hi: {
-    welcome: 'SwasthAI Guardian mein aapka swagat hai. Kripya apna naam boliye.',
+    welcome: 'MediFlow AI mein aapka swagat hai. Kripya apna naam boliye.',
     name: 'Kripya apna poora naam boliye.',
     phone: 'Kripya apna 10-ank ka mobile number boliye.',
     village: 'Kripya apne gaon ka naam boliye.',
@@ -21,7 +21,7 @@ const GUIDANCE_PROMPTS = {
     complete: 'Dhanyavaad. Aapka account bana ja raha hai.',
   },
   mr: {
-    welcome: 'SwasthAI Guardian madhye aaple swagat aahe. Krupaya aaple naav bolaa.',
+    welcome: 'MediFlow AI madhye aaple swagat aahe. Krupaya aaple naav bolaa.',
     name: 'Krupaya aaple poora naav bolaa.',
     phone: 'Krupaya aapla 10-ank ka mobile number bolaa.',
     village: 'Krupaya aaplya gaavacha naav bolaa.',
@@ -29,7 +29,7 @@ const GUIDANCE_PROMPTS = {
     complete: 'Dhanyavaad. Aaple account banvat aahe.',
   },
   ta: {
-    welcome: 'SwasthAI Guardian-ku varavekkam. Ungal peyarai solungal.',
+    welcome: 'MediFlow AI-ku varavekkam. Ungal peyarai solungal.',
     name: 'Ungal peyarai solungal.',
     phone: 'Ungal 10-ilakkam mobile ennai solungal.',
     village: 'Ungal gramathin peyarai solungal.',
@@ -37,7 +37,7 @@ const GUIDANCE_PROMPTS = {
     complete: 'Nandri. Ungal kol argal udan akkappadum.',
   },
   te: {
-    welcome: 'SwasthAI Guardian lo miku svagatham. Mi parea cheppandi.',
+    welcome: 'MediFlow AI lo miku svagatham. Mi parea cheppandi.',
     name: 'Mi parea cheppandi.',
     phone: 'Mi 10-anukula mobile number cheppandi.',
     village: 'Mi gramam peru cheppandi.',
@@ -45,7 +45,7 @@ const GUIDANCE_PROMPTS = {
     complete: 'Dhanyavadaluu. Miku account akshayam. Thank you, ra.',
   },
   bn: {
-    welcome: 'SwasthAI Guardian - e apnake shagotom. Doya kore apnar naam bolun.',
+    welcome: 'MediFlow AI - e apnake shagotom. Doya kore apnar naam bolun.',
     name: 'Apnar naam bolun.',
     phone: 'Apnar 10-digiter mobile number bolun.',
     village: 'Apnar graamer naam bolun.',
@@ -53,7 +53,7 @@ const GUIDANCE_PROMPTS = {
     complete: 'Shubheccha. Apnar account ti toiri hocche.',
   },
   gu: {
-    welcome: 'SwasthAI Guardian ma tamaru svagat che. Kripya tamaru naam bolo.',
+    welcome: 'MediFlow AI ma tamaru svagat che. Kripya tamaru naam bolo.',
     name: 'Kripya tamaru naam bolo.',
     phone: 'Kripya tamaro 10-ank no mobile number bolo.',
     village: 'Kripya tamaru gamnu naam bolo.',

@@ -1,4 +1,4 @@
-# Security Audit Report — SwasthAI Guardian
+# Security Audit Report — MediFlow AI
 
 **Audit Date:** June 2026
 **Audit Scope:** Backend authentication, authorization, security middleware, production configuration
@@ -49,7 +49,7 @@ The authentication system uses a dual-mode strategy: **OTP-based passwordless lo
 | Issue | Severity | Details |
 |-------|:--------:|---------|
 | **User Enumeration (OTP Login)** | Medium | Login-OTP returned `404` with `"No account found with this phone number"` — leaks whether a phone is registered. **Fixed in this sprint** (now returns `401` with generic message). |
-| **Hardcoded Admin Passcode Fallback** | High | Registration uses `process.env.ADMIN_REGISTRATION_PASSCODE || 'swasthai-admin-2026'`. If the env var is not set, anyone knowing `swasthai-admin-2026` can register as admin. Production deployments must set `ADMIN_REGISTRATION_PASSCODE`. |
+| **Hardcoded Admin Passcode Fallback** | High | Registration uses `process.env.ADMIN_REGISTRATION_PASSCODE || 'MediFlow AI-admin-2026'`. If the env var is not set, anyone knowing `MediFlow AI-admin-2026` can register as admin. Production deployments must set `ADMIN_REGISTRATION_PASSCODE`. |
 | **No Account Lockout** | Medium | No lockout mechanism after N failed login attempts. Relies solely on IP-based rate limiting (15/15min). A distributed brute force from multiple IPs could bypass this. |
 | **No Refresh Token Family Tracking** | Low | Token rotation is implemented, but stolen token reuse is not detected. If a refresh token is compromised, both the legitimate user and attacker can get new tokens until expiry. |
 | **Password Policy** | Low | Only minimum 6 characters. No complexity requirements (uppercase, number, symbol). |
@@ -220,7 +220,7 @@ For Sprint 2, a non-breaking approach would add granular roles while preserving 
 
 | # | Issue | File | Impact |
 |---|-------|------|--------|
-| C1 | **Hardcoded admin passcode fallback** | `routes/auth.js:143` | Anyone knowing `swasthai-admin-2026` can register as admin if `ADMIN_REGISTRATION_PASSCODE` is not set |
+| C1 | **Hardcoded admin passcode fallback** | `routes/auth.js:143` | Anyone knowing `MediFlow AI-admin-2026` can register as admin if `ADMIN_REGISTRATION_PASSCODE` is not set |
 | C2 | **No role hierarchy for multi-tier admin** | `middleware/policy.js` | District, State, and Super Admin all share same permissions. No tenant isolation. |
 
 ---
@@ -331,4 +331,4 @@ P3: Registration phone verification
 
 ---
 
-*End of Security Audit Report — SwasthAI Guardian*
+*End of Security Audit Report — MediFlow AI*

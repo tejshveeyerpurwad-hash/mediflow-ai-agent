@@ -134,8 +134,8 @@
     "address": "Varanasi, Uttar Pradesh, India",
     "asha_alert": "ASHA Worker Quick-Alert",
     "connect": "Connect",
-    "copyright": "© 2026 SwasthAI Guardian. A mission to modernize rural healthcare through AI innovation.",
-    "description": "Bridging the critical healthcare gap in rural India. SwasthAI Guardian leverages AI and local health networks to provide instant diagnostics and emergency support to every village.",
+    "copyright": "© 2026 MediFlow AI. A mission to modernize rural healthcare through AI innovation.",
+    "description": "Bridging the critical healthcare gap in rural India. MediFlow AI leverages AI and local health networks to provide instant diagnostics and emergency support to every village.",
     "emergency_helplines": "Emergency Helplines",
     "empowering": "Empowering Rural Bharat",
     "ethics": "Digital Ethics",
@@ -144,10 +144,10 @@
     "quick_access": "Quick Access",
     "regional_hub": "Regional Hub",
     "request_assist": "Request Local Assistance",
-    "secured_by": "Secured by SwasthAI Protocols",
+    "secured_by": "Secured by MediFlow AI Protocols",
     "support_line": "Support Line"
   },
-  "footer_text": "© 2026 SwasthAI Healthcare Platform. All Rights Reserved. IEEE Certified.",
+  "footer_text": "© 2026 MediFlow AI. All Rights Reserved. IEEE Certified.",
   "for_good_health": "for Good Health",
   "get_started_now": "Get Started Now",
   "intro": {
@@ -171,7 +171,7 @@
     "strategic_desc": "Fast doctor advice and emergency help for every village.",
     "strategic_title": "Complete Health Support",
     "welcome_sub": "Smart Healthcare for Every Village",
-    "welcome_title": "Welcome to SwasthAI"
+    "welcome_title": "Welcome to MediFlow AI"
   },
   "join_network": "Join Network",
   "join_thousands": "Join thousands of ASHA workers, doctors, and citizens building the future of comprehensive healthcare infrastructure.",
@@ -298,7 +298,7 @@
     "share": "Share",
     "app_download": "App Download",
     "app_download_prompt": "App Download Karein / डाउनलोड करें",
-    "share_title": "Share SwasthAI",
+    "share_title": "Share MediFlow AI",
     "share_subtitle": "Village Health QR Code",
     "share_scan_desc": "Scan this code to open the app instantly on another phone. इसे दूसरे फ़ोन से स्कैन करें।",
     "copy_link": "Copy App Link",
@@ -375,7 +375,7 @@
     "voice": "Speak to Get Help",
     "voice_desc": "No need to type, just speak and get help."
   },
-  "swasthai": "SwasthAI",
+  "swasthai": "MediFlow AI",
   "symptom": {
     "analyzing": "Analyzing...",
     "bleeding": "Bleeding",

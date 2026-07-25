@@ -41,7 +41,7 @@ export default function OfflineFirstHealth({ isOffline, lastSync, onSync, demoDa
   const checkDBStatus = async () => {
     try {
       if (typeof indexedDB !== 'undefined') {
-        const req = indexedDB.open('swasthai_sync_queue', 1);
+        const req = indexedDB.open('mediflow_sync_queue', 1);
         req.onsuccess = () => setDbStatus('connected');
         req.onerror = () => setDbStatus('unavailable');
         setTimeout(() => setDbStatus('connected'), 500);

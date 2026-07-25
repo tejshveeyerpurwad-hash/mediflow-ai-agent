@@ -251,7 +251,7 @@ export default function AdminDashboard() {
 
     let API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
     if (import.meta.env.MODE === 'production' && !import.meta.env.VITE_API_URL) {
-      API_BASE = 'https://swasthai-guardian-platform-0jsb.onrender.com/api';
+      API_BASE = 'https://mediflow-ai-platform.onrender.com/api';
     }
     API_BASE = API_BASE.replace(/\/+$/, '');
     const sseUrl = `${API_BASE}/admin/live-feed?token=${encodeURIComponent(token)}`;
@@ -431,7 +431,7 @@ export default function AdminDashboard() {
     try {
       const response = await api.get('/admin/report', { responseType: 'blob' });
       const url = window.URL.createObjectURL(new Blob([response.data]));
-      triggerBlobDownload(url, 'swasthai_admin_report.csv');
+      triggerBlobDownload(url, 'mediflow_admin_report.csv');
     } catch (e) {
       console.debug('Backend download failed, generating client-side report fallback...');
       const isDemo = demoTourMode;
@@ -445,7 +445,7 @@ export default function AdminDashboard() {
       });
       const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
       const url = window.URL.createObjectURL(blob);
-      triggerBlobDownload(url, isDemo ? 'swasthai_admin_demo_report.csv' : 'swasthai_admin_report_offline.csv');
+      triggerBlobDownload(url, isDemo ? 'mediflow_admin_demo_report.csv' : 'mediflow_admin_report_offline.csv');
     }
   };
 
@@ -525,7 +525,7 @@ export default function AdminDashboard() {
           </div>
           {!sidebarCollapsed && (
             <div className="flex-1 min-w-0 animate-in fade-in duration-200">
-              <p className="font-black text-[12px] uppercase tracking-wider text-white leading-tight">SWASTHAI GUARDIAN</p>
+              <p className="font-black text-[12px] uppercase tracking-wider text-white leading-tight">MediFlow AI</p>
               <p className="text-[7px] text-emerald-400/80 font-bold mt-0.5 leading-tight uppercase tracking-widest">National Rural Command</p>
             </div>
           )}
@@ -636,7 +636,7 @@ export default function AdminDashboard() {
         {!sidebarCollapsed && (
           <div className="px-4 py-2.5 border-t border-white/5">
             <p className="text-[8px] text-white/20 font-bold tracking-wider truncate">
-              SwasthAI Guardian v{VERSION} · © {COPYRIGHT_YEAR}
+              MediFlow AI v{VERSION} · © {COPYRIGHT_YEAR}
             </p>
           </div>
         )}
@@ -915,12 +915,12 @@ export default function AdminDashboard() {
         <footer className="bg-white border-t border-slate-200 px-5 py-2.5 shrink-0">
           <div className="flex items-center justify-between flex-wrap gap-2">
             <div className="flex items-center gap-3 text-[9px] font-bold text-slate-400">
-              <span className="flex items-center gap-1.5"><HeartPulse className="w-3 h-3 text-emerald-500" /> SwasthAI Guardian {VERSION}</span>
+              <span className="flex items-center gap-1.5"><HeartPulse className="w-3 h-3 text-emerald-500" /> MediFlow AI {VERSION}</span>
               <span className="border-l border-slate-200 pl-3">Offline-First Healthcare</span>
               <span className="border-l border-slate-200 pl-3 hidden sm:block">6 Indian Languages Supported</span>
               <span className="border-l border-slate-200 pl-3 hidden md:block">Voice + AI + RAG</span>
             </div>
-            <span className="text-[9px] text-slate-300 font-medium">© {COPYRIGHT_YEAR} SwasthAI Guardian. All rights reserved.</span>
+            <span className="text-[9px] text-slate-300 font-medium">© {COPYRIGHT_YEAR} MediFlow AI. All rights reserved.</span>
           </div>
         </footer>
       </div>

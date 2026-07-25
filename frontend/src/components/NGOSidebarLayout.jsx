@@ -240,7 +240,7 @@ export default function NGOSidebarLayout({ children, activeTab }) {
                 })}
               </nav>
               <div className="p-4 border-t border-slate-100 bg-slate-50 text-[10px] font-bold text-slate-400 text-center uppercase tracking-wide">
-                SwasthAI PWA v1.2.0
+                MediFlow AI PWA v1.2.0
               </div>
             </motion.aside>
           </>

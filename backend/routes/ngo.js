@@ -903,7 +903,7 @@ router.get('/impact-report', auth, checkRole(['ngo', 'admin']), logAudit('genera
 
     // Dynamic Executive Summary
     const monthName = now.toLocaleString('default', { month: 'long' });
-    const summary = `During ${monthName} ${now.getFullYear()}, SwasthAI supported ${count(ASHAWorkers)} ASHA worker(s) across ${count(villagesTotal)} village(s). The team tracked ${count(pregnanciesThis)} new pregnancies, completed ${count(vaccinationsThis)} immunizations, and closed ${referralClosureRate}% of all medical referrals with an average emergency response time of ${avgResponseTime} minutes.`;
+    const summary = `During ${monthName} ${now.getFullYear()}, MediFlow AI supported ${count(ASHAWorkers)} ASHA worker(s) across ${count(villagesTotal)} village(s). The team tracked ${count(pregnanciesThis)} new pregnancies, completed ${count(vaccinationsThis)} immunizations, and closed ${referralClosureRate}% of all medical referrals with an average emergency response time of ${avgResponseTime} minutes.`;
 
     const villagesCount = count(villagesTotal);
     const pregnanciesCount = count(pregnanciesTotal);

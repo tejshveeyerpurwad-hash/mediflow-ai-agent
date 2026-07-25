@@ -367,7 +367,7 @@ export default function LandingPage() {
                 </button>
                 <button
                   disabled={demoLoading !== null}
-                  onClick={() => handleOneClickLogin('admin@swasthai.in', 'Demo@1234', 'admin')}
+                  onClick={() => handleOneClickLogin('admin@mediflow-ai.demo', 'Demo@1234', 'admin')}
                   className="px-2 py-3 bg-slate-800 hover:bg-slate-700 disabled:opacity-50 text-white rounded-xl text-[9px] sm:text-[10px] font-black uppercase tracking-wider transition-colors border border-slate-700"
                 >
                   {demoLoading === 'admin' ? '⏳...' : 'Admin Command'}
@@ -402,7 +402,7 @@ export default function LandingPage() {
       <section className="py-24 bg-white">
          <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-16">
-              <p className="text-[10px] font-black uppercase tracking-[0.4em] text-emerald-600 mb-3">{t.landing?.what_we_do || 'What SwasthAI Does'}</p>
+              <p className="text-[10px] font-black uppercase tracking-[0.4em] text-emerald-600 mb-3">{t.landing?.what_we_do || 'What MediFlow AI Does'}</p>
               <h2 className="text-4xl lg:text-5xl font-black text-slate-900 tracking-tighter">{t.landing?.real_tools || 'Real tools for real villages.'}</h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
@@ -588,7 +588,7 @@ export default function LandingPage() {
                   <p className="text-[10px] font-black uppercase tracking-[0.4em] text-emerald-600 mb-3">Zero Vaporware. Fully Verified.</p>
                   <h2 className="text-4xl lg:text-5xl font-black text-slate-900 tracking-tighter leading-none">REAL ML MODELS & LIVE CLOUD DATABASES</h2>
                   <p className="mt-6 text-slate-500 text-sm leading-relaxed font-medium">
-                     Unlike prototype apps that rely on generic mock-ups, SwasthAI is backed by active database deployments and custom-trained AI architectures. You can verify this live in the Admin dashboard under system logs.
+                     Unlike prototype apps that rely on generic mock-ups, MediFlow AI is backed by active database deployments and custom-trained AI architectures. You can verify this live in the Admin dashboard under system logs.
                   </p>
                   
                   <div className="mt-8 space-y-4">
@@ -700,7 +700,7 @@ export default function LandingPage() {
             <p className="text-slate-400 font-bold uppercase tracking-widest text-[10px] sm:text-sm mb-8 sm:mb-12 px-6">Take the first step towards better health today.</p>
             <button 
               onClick={() => navigate('/intro')}
-              aria-label="Get Started with SwasthAI"
+              aria-label="Get Started with MediFlow AI"
               className="px-10 py-5 sm:px-16 sm:py-8 bg-emerald-600 text-white rounded-full font-black uppercase tracking-[0.3em] text-sm sm:text-lg shadow-2xl shadow-emerald-200 hover:scale-105 active:scale-95 focus-visible:ring-4 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 outline-none transition-all"
             >
                Get Started

@@ -58,7 +58,7 @@ const ROLES = [
     bg: 'bg-slate-500/10',
     iconColor: 'text-slate-400',
     path: '/login',
-    credentials: { identifier: 'admin@swasthai.in', password: 'Demo@1234' },
+    credentials: { identifier: 'admin@mediflow-ai.demo', password: 'Demo@1234' },
     features: [
       'National Rural Health Command Center',
       'Autonomous AI outbreak detection (30 min loop)',
@@ -127,7 +127,7 @@ export default function DemoPage() {
             <span className="text-emerald-400 text-[11px] font-black uppercase tracking-widest">Platform Live Demo</span>
           </div>
           <h1 className="text-5xl md:text-7xl font-black text-white mb-4 tracking-tight leading-none">
-            SwasthAI<br/><span className="text-emerald-400">Guardian</span>
+            MediFlow<br/><span className="text-emerald-400">AI</span>
           </h1>
           <p className="text-slate-400 text-lg font-medium max-w-2xl mx-auto mb-3 leading-relaxed">
             National Rural Health Intelligence Platform — AI-powered disease surveillance, offline-first medical access,
@@ -411,7 +411,7 @@ export default function DemoPage() {
         {/* Footer CTA */}
         <div className="text-center">
           <p className="text-slate-500 text-[11px] font-medium mb-4">
-            SwasthAI Guardian Operations Platform {VERSION}
+            MediFlow AI Operations Platform {VERSION}
           </p>
           <div className="flex items-center justify-center gap-4">
             <Link to="/login" className="px-8 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-black text-[13px] uppercase tracking-wider transition-colors shadow-lg">

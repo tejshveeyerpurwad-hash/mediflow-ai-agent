@@ -1,4 +1,4 @@
-// ─── SwasthAI Guardian – Reusable Dashboard Card Components ──────────────────
+// ─── MediFlow AI – Reusable Dashboard Card Components ──────────────────
 import { motion } from 'framer-motion';
 import {
   ChevronRight, MapPin, CheckCircle, AlertTriangle,

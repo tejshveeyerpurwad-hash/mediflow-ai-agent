@@ -27,7 +27,7 @@
   <rect width="1200" height="900" fill="url(#bg)" rx="8"/>
 
   <!-- Title -->
-  <text x="600" y="36" text-anchor="middle" font-size="20" font-weight="bold" fill="#1e293b">SwasthAI Guardian Platform — Architecture</text>
+  <text x="600" y="36" text-anchor="middle" font-size="20" font-weight="bold" fill="#1e293b">MediFlow AI Platform — Architecture</text>
   <text x="600" y="56" text-anchor="middle" font-size="12" fill="#64748b">AWS Region: ap-south-1</text>
 
   <!-- ==================== LAYER LABELS (vertical side) ==================== -->
@@ -198,5 +198,5 @@
   <text x="950" y="730" font-size="10" fill="#475569">Backend ↔ AI Service (ML Predictions &amp; RAG)</text>
 
   <!-- Footer -->
-  <text x="600" y="890" text-anchor="middle" font-size="9" fill="#94a3b8">B2B Operations — SwasthAI Guardian Platform</text>
+  <text x="600" y="890" text-anchor="middle" font-size="9" fill="#94a3b8">B2B Operations — MediFlow AI Platform</text>
 </svg>

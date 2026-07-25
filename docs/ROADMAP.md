@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This roadmap outlines the strategic development plan for SwasthAI Guardian. It is organized into four phases spanning from the current foundation through to a multi-state public health platform. Priorities are driven by field feedback from rural health workers, district health officers, and NGO partners.
+This roadmap outlines the strategic development plan for MediFlow AI. It is organized into four phases spanning from the current foundation through to a multi-state public health platform. Priorities are driven by field feedback from rural health workers, district health officers, and NGO partners.
 
 ---
 

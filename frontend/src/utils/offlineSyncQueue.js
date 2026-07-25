@@ -10,7 +10,7 @@
  * event dispatcher updates.
  */
 
-const DB_NAME = 'swasthai_sync_queue';
+const DB_NAME = 'mediflow_sync_queue';
 const DB_VERSION = 1;
 const STORES = {
   maternal:  'maternal_queue',
@@ -64,7 +64,7 @@ async function getAllFromStore(storeName) {
   if (!db) {
     // Fallback: try reading from localStorage
     try {
-      return JSON.parse(localStorage.getItem(`swasthai_fallback_${storeName}`) || '[]');
+      return JSON.parse(localStorage.getItem(`mediflow_fallback_${storeName}`) || '[]');
     } catch (_) { return []; }
   }
   return new Promise((resolve) => {
@@ -80,9 +80,9 @@ async function addToStore(storeName, record) {
   if (!db) {
     // Fallback: append to localStorage list
     try {
-      const curr = JSON.parse(localStorage.getItem(`swasthai_fallback_${storeName}`) || '[]');
+      const curr = JSON.parse(localStorage.getItem(`mediflow_fallback_${storeName}`) || '[]');
       curr.push(record);
-      localStorage.setItem(`swasthai_fallback_${storeName}`, JSON.stringify(curr));
+      localStorage.setItem(`mediflow_fallback_${storeName}`, JSON.stringify(curr));
     } catch (_) {}
     return;
   }
@@ -97,9 +97,9 @@ async function deleteFromStore(storeName, id) {
   const db = await getQueueDB();
   if (!db) {
     try {
-      const curr = JSON.parse(localStorage.getItem(`swasthai_fallback_${storeName}`) || '[]');
+      const curr = JSON.parse(localStorage.getItem(`mediflow_fallback_${storeName}`) || '[]');
       const filtered = curr.filter(r => r.id !== id);
-      localStorage.setItem(`swasthai_fallback_${storeName}`, JSON.stringify(filtered));
+      localStorage.setItem(`mediflow_fallback_${storeName}`, JSON.stringify(filtered));
     } catch (_) {}
     return;
   }
@@ -166,7 +166,7 @@ export async function getQueueStats() {
 // Custom event to notify React components when the write queue length changes
 function triggerQueueUpdateEvent() {
   getQueueStats().then(stats => {
-    const ev = new CustomEvent('swasthai_queue_updated', { detail: stats });
+    const ev = new CustomEvent('mediflow_queue_updated', { detail: stats });
     window.dispatchEvent(ev);
   });
 }

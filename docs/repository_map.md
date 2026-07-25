@@ -1,13 +1,13 @@
-# 📁 SwasthAI Guardian Repository Directory Map
+# 📁 MediFlow AI Repository Directory Map
 
-This document provides a comprehensive map of the SwasthAI Guardian codebase, detailing directory roles, files, and their architectural purpose.
+This document provides a comprehensive map of the MediFlow AI codebase, detailing directory roles, files, and their architectural purpose.
 
 ---
 
 ## 🏗️ Folder Tree Overview
 
 ```
-SwasthAI-Guardian-Platform/
+MediFlow AI-Guardian-Platform/
 ├── frontend/                     # React + Vite PWA (Frontend App)
 │   ├── public/                   # Static icons & manifest for PWA installability
 │   └── src/
@@ -80,16 +80,16 @@ SwasthAI-Guardian-Platform/
 ## 🔍 Core Component Descriptions
 
 ### 1. Frontend Client
-* **[App.jsx](file:///c:/projects/SwasthAI-Guardian-Platform/frontend/src/App.jsx)**: Handles app routing. Wraps the main layout inside the [DiSHAConsentModal](file:///c:/projects/SwasthAI-Guardian-Platform/frontend/src/components/DiSHAConsentModal.jsx) to ensure all clinical assessments comply with the Digital Information Security in Healthcare Act (DISHA) of India.
-* **[index.css](file:///c:/projects/SwasthAI-Guardian-Platform/frontend/src/index.css)**: Implements the system's design tokens (colors, animations, and typography). Contains accessibility classes matching WCAG 2.5.5 touch target sizes and handles page transition optimizations.
-* **[AuthContext.jsx](file:///c:/projects/SwasthAI-Guardian-Platform/frontend/src/context/AuthContext.jsx)**: Handles login sessions. Utilizes client-side SHA-256 password hashing for protecting cached user profiles when operating in offline/low-connectivity environments.
+* **[App.jsx](file:///c:/projects/MediFlow AI-Guardian-Platform/frontend/src/App.jsx)**: Handles app routing. Wraps the main layout inside the [DiSHAConsentModal](file:///c:/projects/MediFlow AI-Guardian-Platform/frontend/src/components/DiSHAConsentModal.jsx) to ensure all clinical assessments comply with the Digital Information Security in Healthcare Act (DISHA) of India.
+* **[index.css](file:///c:/projects/MediFlow AI-Guardian-Platform/frontend/src/index.css)**: Implements the system's design tokens (colors, animations, and typography). Contains accessibility classes matching WCAG 2.5.5 touch target sizes and handles page transition optimizations.
+* **[AuthContext.jsx](file:///c:/projects/MediFlow AI-Guardian-Platform/frontend/src/context/AuthContext.jsx)**: Handles login sessions. Utilizes client-side SHA-256 password hashing for protecting cached user profiles when operating in offline/low-connectivity environments.
 
 ### 2. Express Backend
-* **[server.js](file:///c:/projects/SwasthAI-Guardian-Platform/backend/server.js)**: Runs the API listener. Integrates a background **Health Watchdog Monitor** that polls the AI service every 30 seconds and verification loops to track Outbreak Agent activity, broadcasting status via SSE.
-* **[dynamodb.js](file:///c:/projects/SwasthAI-Guardian-Platform/backend/dynamodb.js)**: Initializes the AWS SDK DynamoDB Client. Bootstraps 5 tables automatically upon server launch (`outbreak_telemetry`, `sync_queues`, `village_node_state`, `emergency_streams`, and `security_audit_logs`) and checks/validates their GSIs and TTLs.
-* **[eventDispatcher.js](file:///c:/projects/SwasthAI-Guardian-Platform/backend/eventDispatcher.js)**: An in-memory queue dispatcher that handles non-blocking database writes. It decouples high-velocity logs and dispatches events like `emergency_triggered` with a robust 3-attempt auto-retry module.
+* **[server.js](file:///c:/projects/MediFlow AI-Guardian-Platform/backend/server.js)**: Runs the API listener. Integrates a background **Health Watchdog Monitor** that polls the AI service every 30 seconds and verification loops to track Outbreak Agent activity, broadcasting status via SSE.
+* **[dynamodb.js](file:///c:/projects/MediFlow AI-Guardian-Platform/backend/dynamodb.js)**: Initializes the AWS SDK DynamoDB Client. Bootstraps 5 tables automatically upon server launch (`outbreak_telemetry`, `sync_queues`, `village_node_state`, `emergency_streams`, and `security_audit_logs`) and checks/validates their GSIs and TTLs.
+* **[eventDispatcher.js](file:///c:/projects/MediFlow AI-Guardian-Platform/backend/eventDispatcher.js)**: An in-memory queue dispatcher that handles non-blocking database writes. It decouples high-velocity logs and dispatches events like `emergency_triggered` with a robust 3-attempt auto-retry module.
 
 ### 3. AI Service
-* **[main.py](file:///c:/projects/SwasthAI-Guardian-Platform/ai-service/main.py)**: Serves FastAPI routes. Contains route paths for SymptomNet ML classification, RAG inference, and the manual triggering of the Outbreak Agent.
-* **[rag_service.py](file:///c:/projects/SwasthAI-Guardian-Platform/ai-service/rag_service.py)**: Encodes queries using semantic transformers. Contains retrieval search methods comparing query vectors against precomputed embeddings in `kb_embeddings.npy` with a threshold cutoff of `0.45` to prevent hallucinations.
-* **[outbreak_agent.py](file:///c:/projects/SwasthAI-Guardian-Platform/ai-service/outbreak_agent.py)**: An autonomous worker executing spatial clustering calculations to identify symptoms indicating potential localized health crises.
+* **[main.py](file:///c:/projects/MediFlow AI-Guardian-Platform/ai-service/main.py)**: Serves FastAPI routes. Contains route paths for SymptomNet ML classification, RAG inference, and the manual triggering of the Outbreak Agent.
+* **[rag_service.py](file:///c:/projects/MediFlow AI-Guardian-Platform/ai-service/rag_service.py)**: Encodes queries using semantic transformers. Contains retrieval search methods comparing query vectors against precomputed embeddings in `kb_embeddings.npy` with a threshold cutoff of `0.45` to prevent hallucinations.
+* **[outbreak_agent.py](file:///c:/projects/MediFlow AI-Guardian-Platform/ai-service/outbreak_agent.py)**: An autonomous worker executing spatial clustering calculations to identify symptoms indicating potential localized health crises.

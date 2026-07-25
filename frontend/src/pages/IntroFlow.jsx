@@ -206,7 +206,7 @@ export default function IntroFlow() {
  
                 <motion.div variants={itemVariants} className="space-y-4 sm:space-y-6 flex flex-col items-center">
                   <h1 className="text-3xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-emerald-800 to-indigo-950 tracking-tighter leading-none pb-1">
-                    {t.intro?.welcome_title || 'Welcome to SwasthAI'}
+                    {t.intro?.welcome_title || 'Welcome to MediFlow AI'}
                   </h1>
                   
                   <div className="flex items-center justify-center gap-2 text-emerald-700 font-extrabold bg-emerald-50/90 backdrop-blur-md px-5 py-2.5 rounded-full border border-emerald-250/50 shadow-md mx-auto max-w-max relative overflow-hidden group">

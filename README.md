@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/demo/thumbnail.png">
-    <img alt="MediFlow AI" src="assets/demo/thumbnail.png" width="100">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/logo/logo-dark.svg">
+    <img alt="MediFlow AI" src="assets/logo/logo-light.svg" width="100">
   </picture>
 </p>
 

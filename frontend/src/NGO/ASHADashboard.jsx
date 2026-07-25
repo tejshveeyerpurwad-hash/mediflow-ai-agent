@@ -1,4 +1,4 @@
-// ─── SwasthAI — Responsive ASHA Dashboard & Field Command Center ──────────────
+// ─── MediFlow AI — Responsive ASHA Dashboard & Field Command Center ──────────────
 // Production-ready dashboard with real-time pregnancy tracking, malnutrition triage,
 // outbreak response, emergency dispatch, and offline-first sync.
 
@@ -293,7 +293,7 @@ export default function ASHADashboard() {
     const handleQueueUpdate = () => {
       updateQueueStats();
     };
-    window.addEventListener('swasthai_queue_updated', handleQueueUpdate);
+    window.addEventListener('mediflow_queue_updated', handleQueueUpdate);
     
     const goOnline = () => {
       setIsOffline(false);
@@ -316,7 +316,7 @@ export default function ASHADashboard() {
     ]);
 
     return () => {
-      window.removeEventListener('swasthai_queue_updated', handleQueueUpdate);
+      window.removeEventListener('mediflow_queue_updated', handleQueueUpdate);
       window.removeEventListener('online', goOnline);
       window.removeEventListener('offline', goOffline);
     };
@@ -2353,7 +2353,7 @@ export default function ASHADashboard() {
               </nav>
 
               <div className="p-4 border-t border-slate-100 bg-slate-50 text-[10px] font-bold text-slate-400 text-center uppercase tracking-wide">
-                SwasthAI PWA v1.2.0
+                MediFlow AI PWA v1.2.0
               </div>
             </motion.aside>
           </>
