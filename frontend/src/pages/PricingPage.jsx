@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar';
 
 const TIERS = [
@@ -45,10 +46,14 @@ export default function PricingPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {TIERS.map((tier) => (
-            <div
+          {TIERS.map((tier, i) => (
+            <motion.div
               key={tier.title}
-              className={`rounded-[2rem] p-8 flex flex-col justify-between hover:shadow-xl transition-all relative ${
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 * i, duration: 0.35, ease: 'easeOut' }}
+              whileHover={{ y: -4 }}
+              className={`rounded-[2rem] p-8 flex flex-col justify-between hover:shadow-xl transition-shadow relative ${
                 tier.color === 'dark'
                   ? 'bg-slate-900 border-2 border-emerald-500 scale-105 shadow-xl shadow-emerald-950/20'
                   : 'bg-white border border-slate-200'
@@ -86,7 +91,7 @@ export default function PricingPage() {
               >
                 {tier.cta}
               </button>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -6,7 +6,7 @@ import {
   HeartPulse, User, LogOut, Menu, X, Shield,
   Activity, Truck, Scan, Home, Globe, Droplets, Mic, BookOpen,
   WifiOff, Wifi, Download, Share2, QrCode, Copy, Check, Sparkles, Plus,
-  Calendar, FileText, Pill, MapPin, ClipboardList
+  Calendar, FileText, Pill, MapPin, ClipboardList, Stethoscope
 } from 'lucide-react';
 import { QRCodeCanvas } from 'qrcode.react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -277,8 +277,8 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Menu - slides down */}
-        {mobileMenuOpen && (
-          <div className="xl:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-100 shadow-2xl p-3 sm:p-4 z-50 overflow-y-auto max-h-[80vh]">
+        <div className={`xl:hidden absolute top-full left-0 right-0 z-50 overflow-hidden transition-all duration-200 ease-in-out ${mobileMenuOpen ? 'max-h-[80vh] opacity-100' : 'max-h-0 opacity-0'}`}>
+          <div className="bg-white border-b border-slate-100 shadow-2xl p-3 sm:p-4 overflow-y-auto max-h-[80vh]">
             <div className="flex flex-col gap-2">
 
               {/* PWA Download Button (Mobile) */}
@@ -386,7 +386,7 @@ export default function Navbar() {
               )}
             </div>
           </div>
-        )}
+        </div>
 
         {/* Offline Status Banner */}
         {!isOnline && (

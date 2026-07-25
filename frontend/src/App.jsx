@@ -1,11 +1,14 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { LanguageProvider } from './context/LanguageContext';
 import { VoiceGuidanceProvider } from './context/VoiceGuidanceContext';
 import DiSHAConsentModal from './components/DiSHAConsentModal';
 import { useConsentGiven } from './utils/consent';
+
+// 404 page
+import NotFoundPage from './pages/NotFoundPage';
 
 // Pages — critical path (eager loaded for instant auth routing)
 import LoginPage from './pages/LoginPage';
@@ -89,6 +92,68 @@ const ProtectedRoute = ({ children, allowedRole }) => {
   return children;
 };
 
+// Animated page wrapper for route transitions
+function AnimatedPage({ children }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -8 }}
+      transition={{ duration: 0.2, ease: 'easeOut' }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+// Routes wrapped with AnimatePresence for page transitions
+function AnimatedRoutes() {
+  const location = useLocation();
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div key={location.pathname}>
+        <Routes location={location}>
+          <Route path="/" element={<AnimatedPage><IntroFlow /></AnimatedPage>} />
+          <Route path="/intro" element={<AnimatedPage><IntroFlow /></AnimatedPage>} />
+          <Route path="/demo" element={<AnimatedPage><DemoPage /></AnimatedPage>} />
+          <Route path="/pricing" element={<AnimatedPage><LayoutWrapper><PricingPage /></LayoutWrapper></AnimatedPage>} />
+          <Route path="/about" element={<AnimatedPage><LayoutWrapper><AboutPage /></LayoutWrapper></AnimatedPage>} />
+          <Route path="/contact" element={<AnimatedPage><LayoutWrapper><ContactPage /></LayoutWrapper></AnimatedPage>} />
+          <Route path="/privacy" element={<AnimatedPage><LayoutWrapper><PrivacyPage /></LayoutWrapper></AnimatedPage>} />
+          <Route path="/login" element={<AnimatedPage><LoginPage /></AnimatedPage>} />
+          <Route path="/register" element={<AnimatedPage><RegisterPage /></AnimatedPage>} />
+          <Route path="/home" element={<AnimatedPage><ProtectedRoute><LayoutWrapper><ErrorBoundary><LandingPage /></ErrorBoundary></LayoutWrapper></ProtectedRoute></AnimatedPage>} />
+          <Route path="/villager" element={<AnimatedPage><ProtectedRoute allowedRole="villager"><LayoutWrapper><ErrorBoundary><VillagerDashboard /></ErrorBoundary></LayoutWrapper></ProtectedRoute></AnimatedPage>} />
+          <Route path="/symptoms" element={<AnimatedPage><ProtectedRoute allowedRole="villager"><LayoutWrapper><ErrorBoundary><SymptomCheckerPage /></ErrorBoundary></LayoutWrapper></ProtectedRoute></AnimatedPage>} />
+          <Route path="/skin-disease" element={<AnimatedPage><ProtectedRoute allowedRole={["villager", "ngo"]}><LayoutWrapper><ErrorBoundary><SkinDiseaseCheckerPage /></ErrorBoundary></LayoutWrapper></ProtectedRoute></AnimatedPage>} />
+          <Route path="/ambulance" element={<AnimatedPage><ProtectedRoute allowedRole="villager"><LayoutWrapper><ErrorBoundary><AmbulancePage /></ErrorBoundary></LayoutWrapper></ProtectedRoute></AnimatedPage>} />
+          <Route path="/profile" element={<AnimatedPage><ProtectedRoute><LayoutWrapper><ErrorBoundary><UserProfile /></ErrorBoundary></LayoutWrapper></ProtectedRoute></AnimatedPage>} />
+          <Route path="/menstrual-health" element={<AnimatedPage><ProtectedRoute allowedRole="villager"><LayoutWrapper><ErrorBoundary><MenstrualHealth /></ErrorBoundary></LayoutWrapper></ProtectedRoute></AnimatedPage>} />
+          <Route path="/schemes" element={<AnimatedPage><ProtectedRoute allowedRole="villager"><LayoutWrapper><ErrorBoundary><GovernmentSchemesPage /></ErrorBoundary></LayoutWrapper></ProtectedRoute></AnimatedPage>} />
+          <Route path="/schemes/:id" element={<AnimatedPage><ProtectedRoute allowedRole="villager"><LayoutWrapper><ErrorBoundary><SchemeDetailPage /></ErrorBoundary></LayoutWrapper></ProtectedRoute></AnimatedPage>} />
+          <Route path="/asha" element={<AnimatedPage><ProtectedRoute allowedRole={["ngo", "admin"]}><ErrorBoundary><ASHADashboard /></ErrorBoundary></ProtectedRoute></AnimatedPage>} />
+          <Route path="/ngo" element={<AnimatedPage><ProtectedRoute allowedRole="ngo"><ErrorBoundary><NGODashboard /></ErrorBoundary></ProtectedRoute></AnimatedPage>} />
+          <Route path="/ngo/maternal" element={<AnimatedPage><ProtectedRoute allowedRole="ngo"><ErrorBoundary><MaternalHealthPage /></ErrorBoundary></ProtectedRoute></AnimatedPage>} />
+          <Route path="/ngo/alerts" element={<AnimatedPage><ProtectedRoute allowedRole="ngo"><ErrorBoundary><NGOAlertsPage /></ErrorBoundary></ProtectedRoute></AnimatedPage>} />
+          <Route path="/ngo/patients" element={<AnimatedPage><ProtectedRoute allowedRole="ngo"><ErrorBoundary><NGOPatientRegistryPage /></ErrorBoundary></ProtectedRoute></AnimatedPage>} />
+          <Route path="/ngo/records" element={<AnimatedPage><ProtectedRoute allowedRole="ngo"><ErrorBoundary><NGORecordCreationPage /></ErrorBoundary></ProtectedRoute></AnimatedPage>} />
+          <Route path="/ngo/child-nutrition" element={<AnimatedPage><ProtectedRoute allowedRole="ngo"><ErrorBoundary><ChildNutritionPage /></ErrorBoundary></ProtectedRoute></AnimatedPage>} />
+          <Route path="/admin" element={<AnimatedPage><ProtectedRoute allowedRole="admin"><DesktopOnlyWrapper dashboardName="Admin Command Center"><ErrorBoundary><AdminDashboard /></ErrorBoundary></DesktopOnlyWrapper></ProtectedRoute></AnimatedPage>} />
+          <Route path="/monitor" element={<AnimatedPage><ProtectedRoute allowedRole={["admin", "ngo", "villager"]}><DesktopOnlyWrapper dashboardName="District Simulation & Observability Monitor"><LayoutWrapper><ErrorBoundary><MonitoringDashboard /></ErrorBoundary></LayoutWrapper></DesktopOnlyWrapper></ProtectedRoute></AnimatedPage>} />
+          <Route path="/timeline" element={<AnimatedPage><ProtectedRoute><ErrorBoundary><PatientTimeline /></ErrorBoundary></ProtectedRoute></AnimatedPage>} />
+          <Route path="/records" element={<AnimatedPage><ProtectedRoute><ErrorBoundary><MedicalRecordsPage /></ErrorBoundary></ProtectedRoute></AnimatedPage>} />
+          <Route path="/care-coordination" element={<AnimatedPage><ProtectedRoute allowedRole={["ngo", "admin"]}><ErrorBoundary><CareCoordinationPage /></ErrorBoundary></ProtectedRoute></AnimatedPage>} />
+          <Route path="/medication-safety" element={<AnimatedPage><ProtectedRoute><ErrorBoundary><MedicationSafetyPage /></ErrorBoundary></ProtectedRoute></AnimatedPage>} />
+          <Route path="/hospital-recommend" element={<AnimatedPage><ProtectedRoute><ErrorBoundary><HospitalRecommendPage /></ErrorBoundary></ProtectedRoute></AnimatedPage>} />
+          <Route path="/appointments" element={<AnimatedPage><ProtectedRoute><ErrorBoundary><AppointmentPage /></ErrorBoundary></ProtectedRoute></AnimatedPage>} />
+          <Route path="/doctor-copilot" element={<AnimatedPage><ProtectedRoute allowedRole={["ngo", "admin"]}><ErrorBoundary><DoctorDashboard /></ErrorBoundary></ProtectedRoute></AnimatedPage>} />
+          <Route path="*" element={<AnimatedPage><NotFoundPage /></AnimatedPage>} />
+        </Routes>
+      </motion.div>
+    </AnimatePresence>
+  );
+}
+
 // Shows DISHA consent modal once per device after first login (restricted to villagers, tracked per user)
 function ConsentGate({ children }) {
   const { user } = useAuth();
@@ -152,167 +217,7 @@ export default function App() {
             <VoiceGuidanceProvider>
             <Suspense fallback={<PageLoader />}>
             <ErrorBoundary>
-            <Routes>
-              <Route path="/" element={<IntroFlow />} />
-              <Route path="/intro" element={<IntroFlow />} />
-              <Route path="/demo" element={<DemoPage />} />
-              
-              {/* B2B SAAS PAGES */}
-              <Route path="/pricing" element={<LayoutWrapper><PricingPage /></LayoutWrapper>} />
-              <Route path="/about" element={<LayoutWrapper><AboutPage /></LayoutWrapper>} />
-              <Route path="/contact" element={<LayoutWrapper><ContactPage /></LayoutWrapper>} />
-              <Route path="/privacy" element={<LayoutWrapper><PrivacyPage /></LayoutWrapper>} />
-
-              {/* AUTHENTICATION AXIS */}
-              <Route path="/login" element={<LoginPage />} />
-              <Route path="/register" element={<RegisterPage />} />
-
-              {/* CORE DOMAINS - Role Specific Dashboards */}
-              <Route path="/home" element={
-                <ProtectedRoute>
-                  <LayoutWrapper><ErrorBoundary><LandingPage /></ErrorBoundary></LayoutWrapper>
-                 </ProtectedRoute>
-              } />
-
-              <Route path="/villager" element={
-                <ProtectedRoute allowedRole="villager">
-                   <LayoutWrapper><ErrorBoundary><VillagerDashboard /></ErrorBoundary></LayoutWrapper>
-                </ProtectedRoute>
-              } />
-
-              {/* FEATURE PAGES (STANDALONE) */}
-              <Route path="/symptoms" element={
-                <ProtectedRoute allowedRole="villager">
-                   <LayoutWrapper><ErrorBoundary><SymptomCheckerPage /></ErrorBoundary></LayoutWrapper>
-                </ProtectedRoute>
-              } />
-              
-              <Route path="/skin-disease" element={
-                <ProtectedRoute allowedRole={["villager", "ngo"]}>
-                   <LayoutWrapper><ErrorBoundary><SkinDiseaseCheckerPage /></ErrorBoundary></LayoutWrapper>
-                </ProtectedRoute>
-              } />
-
-              <Route path="/ambulance" element={
-                <ProtectedRoute allowedRole="villager">
-                   <LayoutWrapper><ErrorBoundary><AmbulancePage /></ErrorBoundary></LayoutWrapper>
-                </ProtectedRoute>
-              } />
-
-              <Route path="/profile" element={
-                <ProtectedRoute>
-                   <LayoutWrapper><ErrorBoundary><UserProfile /></ErrorBoundary></LayoutWrapper>
-                </ProtectedRoute>
-              } />
-
-              <Route path="/menstrual-health" element={
-                <ProtectedRoute allowedRole="villager">
-                   <LayoutWrapper><ErrorBoundary><MenstrualHealth /></ErrorBoundary></LayoutWrapper>
-                </ProtectedRoute>
-              } />
-
-              <Route path="/schemes" element={
-                <ProtectedRoute allowedRole="villager">
-                   <LayoutWrapper><ErrorBoundary><GovernmentSchemesPage /></ErrorBoundary></LayoutWrapper>
-                </ProtectedRoute>
-              } />
-
-              <Route path="/schemes/:id" element={
-                <ProtectedRoute allowedRole="villager">
-                   <LayoutWrapper><ErrorBoundary><SchemeDetailPage /></ErrorBoundary></LayoutWrapper>
-                </ProtectedRoute>
-              } />
-
-              {/* NGO/ADMIN DOMAINS */}
-              {/* ASHA Field Worker Dashboard – pixel-accurate mobile UI */}
-              <Route path="/asha" element={
-                <ProtectedRoute allowedRole={["ngo", "admin"]}>
-                   <ErrorBoundary><ASHADashboard /></ErrorBoundary>
-                </ProtectedRoute>
-              } />
-              <Route path="/ngo" element={
-                <ProtectedRoute allowedRole="ngo">
-                   <ErrorBoundary><NGODashboard /></ErrorBoundary>
-                </ProtectedRoute>
-              } />
-              <Route path="/ngo/maternal" element={
-                <ProtectedRoute allowedRole="ngo">
-                   <ErrorBoundary><MaternalHealthPage /></ErrorBoundary>
-                </ProtectedRoute>
-              } />
-              <Route path="/ngo/alerts" element={
-                <ProtectedRoute allowedRole="ngo">
-                   <ErrorBoundary><NGOAlertsPage /></ErrorBoundary>
-                </ProtectedRoute>
-              } />
-              <Route path="/ngo/patients" element={
-                <ProtectedRoute allowedRole="ngo">
-                   <ErrorBoundary><NGOPatientRegistryPage /></ErrorBoundary>
-                </ProtectedRoute>
-              } />
-              <Route path="/ngo/records" element={
-                <ProtectedRoute allowedRole="ngo">
-                   <ErrorBoundary><NGORecordCreationPage /></ErrorBoundary>
-                </ProtectedRoute>
-              } />
-              <Route path="/ngo/child-nutrition" element={
-                <ProtectedRoute allowedRole="ngo">
-                   <ErrorBoundary><ChildNutritionPage /></ErrorBoundary>
-                </ProtectedRoute>
-              } />
-              <Route path="/admin" element={
-                <ProtectedRoute allowedRole="admin">
-                  <DesktopOnlyWrapper dashboardName="Admin Command Center">
-                    <ErrorBoundary><AdminDashboard /></ErrorBoundary>
-                  </DesktopOnlyWrapper>
-                </ProtectedRoute>
-              } />
-              <Route path="/monitor" element={
-                <ProtectedRoute allowedRole={["admin", "ngo", "villager"]}>
-                  <DesktopOnlyWrapper dashboardName="District Simulation & Observability Monitor">
-                    <LayoutWrapper><ErrorBoundary><MonitoringDashboard /></ErrorBoundary></LayoutWrapper>
-                  </DesktopOnlyWrapper>
-                </ProtectedRoute>
-              } />
-
-              {/* MEDIFLOW AI MULTI-AGENT PAGES */}
-              <Route path="/timeline" element={
-                <ProtectedRoute>
-                  <ErrorBoundary><PatientTimeline /></ErrorBoundary>
-                </ProtectedRoute>
-              } />
-              <Route path="/records" element={
-                <ProtectedRoute>
-                  <ErrorBoundary><MedicalRecordsPage /></ErrorBoundary>
-                </ProtectedRoute>
-              } />
-              <Route path="/care-coordination" element={
-                <ProtectedRoute allowedRole={["ngo", "admin"]}>
-                  <ErrorBoundary><CareCoordinationPage /></ErrorBoundary>
-                </ProtectedRoute>
-              } />
-              <Route path="/medication-safety" element={
-                <ProtectedRoute>
-                  <ErrorBoundary><MedicationSafetyPage /></ErrorBoundary>
-                </ProtectedRoute>
-              } />
-              <Route path="/hospital-recommend" element={
-                <ProtectedRoute>
-                  <ErrorBoundary><HospitalRecommendPage /></ErrorBoundary>
-                </ProtectedRoute>
-              } />
-              <Route path="/appointments" element={
-                <ProtectedRoute>
-                  <ErrorBoundary><AppointmentPage /></ErrorBoundary>
-                </ProtectedRoute>
-              } />
-              <Route path="/doctor-copilot" element={
-                <ProtectedRoute allowedRole={["ngo", "admin"]}>
-                  <ErrorBoundary><DoctorDashboard /></ErrorBoundary>
-                </ProtectedRoute>
-              } />
-              <Route path="*" element={<Navigate to="/" replace />} />
-            </Routes>
+            <AnimatedRoutes />
             </ErrorBoundary>
             </Suspense>
             </VoiceGuidanceProvider>
