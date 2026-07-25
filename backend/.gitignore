@@ -2,6 +2,8 @@
 .env
 .env.local
 .env.production
+# Allow .env.example to be tracked
+!.env.example
 
 # SQLite database — contains real PHI (protected health information)
 *.sqlite

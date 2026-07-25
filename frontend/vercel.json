@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://mediflow-backend.onrender.com/api/$1" },
+    { "source": "/api/(.*)", "destination": "https://mediflow-api-opal.vercel.app/api/$1" },
     { "source": "/((?!api).*)", "destination": "/index.html" }
   ],
   "headers": [

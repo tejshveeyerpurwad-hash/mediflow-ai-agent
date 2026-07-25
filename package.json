@@ -11,26 +11,6 @@
     "dev:ai": "cd ai-service && uvicorn main:app --port 8000 --host 127.0.0.1",
     "train:ai": "cd ai-service && python train_disease_model.py && python train_deep_model.py && python calibrate_rag.py"
   },
-  "dependencies": {
-    "express": "^4.19.2",
-    "cors": "^2.8.5",
-    "helmet": "^8.1.0",
-    "express-rate-limit": "^8.4.1",
-    "jsonwebtoken": "^9.0.2",
-    "bcryptjs": "^2.4.3",
-    "dotenv": "^16.4.5",
-    "axios": "^1.14.0",
-    "sqlite": "^5.1.1",
-    "sqlite3": "^6.0.1",
-    "pg": "^8.11.5",
-    "ws": "^8.21.0",
-    "@aws-sdk/client-dynamodb": "^3.569.0",
-    "@aws-sdk/lib-dynamodb": "^3.569.0",
-    "zod": "^4.4.3"
-  },
-  "optionalDependencies": {
-    "better-sqlite3": "^12.10.0"
-  },
   "devDependencies": {
     "concurrently": "^8.2.2"
   },
