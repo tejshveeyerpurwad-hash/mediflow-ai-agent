@@ -1,7 +1,7 @@
 <div align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/logo.png">
-    <img alt="MediFlow AI" src="assets/logo.png" width="120">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/demo/thumbnail.png">
+    <img alt="MediFlow AI" src="assets/demo/thumbnail.png" width="120">
   </picture>
 
   <h1>MediFlow AI</h1>
@@ -15,7 +15,7 @@
   <a href="#-product-preview"><img src="https://img.shields.io/badge/Preview-Screenshots-6366f1?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Screenshots"></a>
   <a href="docs/ARCHITECTURE.md"><img src="https://img.shields.io/badge/Architecture-Mermaid-22c55e?style=for-the-badge&logo=diagramsdotnet&logoColor=white" alt="Architecture"></a>
   <a href="docs/AI.md"><img src="https://img.shields.io/badge/AI-Models-8b5cf6?style=for-the-badge&logo=openai&logoColor=white" alt="AI Models"></a>
-  <a href="https://render.com/deploy?repo=https://github.com/tejshveeyerpurwad-hash/mediflow-ai-agent"><img src="https://img.shields.io/badge/Deploy-Render-46E3B7?style=for-the-badge&logo=render&logoColor=white" alt="Deploy"></a>
+  <a href="docs/BUSINESS.md"><img src="https://img.shields.io/badge/Business-Strategy-f59e0b?style=for-the-badge&logo=chartline&logoColor=white" alt="Business"></a>
 
   <br>
   <br>
@@ -23,10 +23,10 @@
   <p>
     <a href="LICENSE"><img src="https://img.shields.io/badge/License-AGPLv3-8A2BE2?style=flat-square" alt="License"></a>
     <a href="#"><img src="https://img.shields.io/badge/Version-2.0.0-000?style=flat-square" alt="Version"></a>
-    <a href="https://mediflow-api-opal.vercel.app/api/health"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fmediflow-api-opal.vercel.app%2Fapi%2Fhealth&style=flat-square&label=Backend&color=22c55e" alt="Backend"></a>
+    <a href="https://mediflow-api-opal.vercel.app/api/health"><img src="https://img.shields.io/badge/Backend_API-Vercel-22c55e?style=flat-square&logo=vercel" alt="Backend"></a>
     <a href="#"><img src="https://img.shields.io/badge/Build-Passing-22c55e?style=flat-square&logo=githubactions" alt="Build"></a>
     <a href="#"><img src="https://img.shields.io/badge/PWA-Enabled-6366f1?style=flat-square&logo=pwa" alt="PWA"></a>
-    <a href="#"><img src="https://img.shields.io/badge/Coverage-7_Languages-FF6F00?style=flat-square" alt="Languages"></a>
+    <a href="#"><img src="https://img.shields.io/badge/Languages-7-FF6F00?style=flat-square" alt="Languages"></a>
     <a href="#"><img src="https://img.shields.io/badge/Diseases-101-ef4444?style=flat-square" alt="Diseases"></a>
     <a href="#"><img src="https://img.shields.io/badge/Offline-First-00C853?style=flat-square" alt="Offline"></a>
     <a href="https://github.com/tejshveeyerpurwad-hash/mediflow-ai-agent"><img src="https://img.shields.io/github/stars/tejshveeyerpurwad-hash/mediflow-ai-agent?style=flat-square&logo=github&label=Stars" alt="Stars"></a>
@@ -537,50 +537,41 @@ flowchart LR
 
 | Welcome & Onboarding | Health Dashboard |
 |:--------------------:|:----------------:|
-| <img src="assets/screenshots/01-welcome.png" width="300" alt="Welcome"> | <img src="assets/screenshots/05-patient-dashboard.png" width="300" alt="Dashboard"> |
+| ![Welcome](assets/screenshots/01-welcome.png) | ![Dashboard](assets/screenshots/05-patient-dashboard.png) |
 | Multi-language onboarding with role-based entry | Personalized health score + quick-access services |
 
 ### 2️⃣ AI-Powered Healthcare
 
 | AI Symptom Checker | Privacy & Consent |
 |:------------------:|:-----------------:|
-| <img src="assets/screenshots/02-features.png" width="300" alt="AI Features"> | <img src="assets/screenshots/04-privacy.png" width="300" alt="Consent"> |
+| ![AI Features](assets/screenshots/02-features.png) | ![Consent](assets/screenshots/04-privacy.png) |
 | 101 diseases across 7 languages | DISHA-compliant data consent flow |
 
 | Medical Records & OCR | Medical Timeline |
 |:--------------------:|:----------------:|
+| ![Records](assets/screenshots/03-registration.png) | ![Timeline](assets/screenshots/05-patient-dashboard.png) |
 | Upload prescriptions for AI extraction | Chronological patient history |
 
 ### 3️⃣ ASHA Worker Portal
 
 | Registration | Dashboard |
 |:-----------:|:---------:|
-| <img src="assets/screenshots/03-registration.png" width="300" alt="Registration"> | <img src="assets/screenshots/07-asha-dashboard.png" width="300" alt="ASHA"> |
+| ![Registration](assets/screenshots/03-registration.png) | ![ASHA](assets/screenshots/07-asha-dashboard.png) |
 | Offline-capable villager registration | Unified triage feed P1–P4 |
 
 ### 4️⃣ Women's Health
 
 | Pregnancy Tracking |
 |:-----------------:|
-| <img src="assets/screenshots/06-women-health.png" width="300" alt="Women's Health"> |
+| ![Women's Health](assets/screenshots/06-women-health.png) |
 | WHO-protocol trimester management |
 
 ### 5️⃣ District Command Center
 
 | Outbreak Radar | Analytics |
 |:-------------:|:---------:|
-| <img src="assets/screenshots/08-district-dashboard.png" width="300" alt="District Dashboard"> |
+| ![District Dashboard](assets/screenshots/08-district-dashboard.png) |
 | Live heatmaps + AI intelligence + System health |
-
-### 6️⃣ Multi-Agent Pages (New)
-
-| Care Coordination | Doctor Copilot | Medication Safety |
-|:-----------------:|:--------------:|:-----------------:|
-| Kanban board for patient triage | AI-assisted diagnosis | Drug interaction checker |
-
-| Hospital Locator | Appointment Scheduler | Follow-Up Management |
-|:----------------:|:--------------------:|:--------------------:|
-| Nearest facility finder | Calendar + QR confirmation | Automated care plans |
 
 <br>
 
@@ -803,12 +794,17 @@ npm run dev
 See [DEPLOYMENT.md](./DEPLOYMENT.md) for complete deployment instructions.
 
 **Already deployed:**
-- **Frontend:** [https://mediflow-ai-olive.vercel.app](https://mediflow-ai-olive.vercel.app)
-- **Backend API:** [https://mediflow-api-opal.vercel.app](https://mediflow-api-opal.vercel.app)
 
-**One-click Render (backend + AI service):**
+| Service | URL | Status |
+|:--------|:----|:-------|
+| **Frontend** | [https://mediflow-ai-olive.vercel.app](https://mediflow-ai-olive.vercel.app) | ✅ Live |
+| **Backend API** | [https://mediflow-api-opal.vercel.app](https://mediflow-api-opal.vercel.app) | ✅ Live |
 
-[![Deploy to Render](https://img.shields.io/badge/Deploy_to_Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://render.com/deploy?repo=https://github.com/tejshveeyerpurwad-hash/mediflow-ai-agent)
+**Render deployment (backend + AI service):**
+
+Connect your GitHub repository at [dashboard.render.com](https://dashboard.render.com) → New Blueprint → select `mediflow-ai-agent` → the `render.yaml` will auto-configure both services.
+
+[![Deploy to Render](https://img.shields.io/badge/Deploy_to_Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://dashboard.render.com/blueprint/new?repo=https://github.com/tejshveeyerpurwad-hash/mediflow-ai-agent)
 
 ### 🔐 Environment Variables
 
@@ -857,13 +853,6 @@ mediflow-ai-agent/
 ├── frontend/                         # React + Vite PWA (Vercel)
 │   ├── src/
 │   │   ├── pages/                    # 30+ page components
-│   │   │   ├── PatientTimeline.jsx   # Medical history timeline
-│   │   │   ├── MedicalRecordsPage.jsx # OCR document upload
-│   │   │   ├── CareCoordinationPage.jsx # Kanban triage board
-│   │   │   ├── MedicationSafetyPage.jsx # Drug interaction checker
-│   │   │   ├── HospitalRecommendPage.jsx # Facility finder
-│   │   │   ├── AppointmentPage.jsx   # Scheduler with calendar
-│   │   │   └── DoctorDashboard.jsx   # AI copilot for clinicians
 │   │   ├── components/               # Reusable UI components
 │   │   ├── services/                 # API + agent service clients
 │   │   ├── context/                  # Auth, language, voice state
@@ -872,12 +861,14 @@ mediflow-ai-agent/
 │   └── vercel.json                   # Vercel deployment config
 │
 ├── backend/                          # Express.js API (Render/Vercel)
-│   ├── app.js                        # Express app (for Vercel serverless)
+│   ├── app.js                        # Express app (Vercel serverless)
 │   ├── server.js                     # Server entry (app.listen + WebSocket)
 │   ├── routes/                       # Auth, villager, NGO, admin, agents, webhooks
 │   ├── middleware/                    # JWT auth, IDOR policy, audit logging
 │   ├── db/                           # Schema, migrations, seed data
-│   └── utils/                        # Sanitizer, validators, helpers
+│   ├── utils/                        # Sanitizer, validators, helpers
+│   ├── tests/                        # Smoke tests
+│   └── seeds/                        # Seed data scripts
 │
 ├── ai-service/                       # FastAPI AI (Render/Docker)
 │   ├── main.py                       # API endpoints + multi-agent routes
@@ -890,19 +881,29 @@ mediflow-ai-agent/
 │   └── model_def.py                  # SymptomNet MLP architecture
 │
 ├── api/                              # Vercel serverless function
-│   └── index.js                      # Imports backend/app.js
+│   ├── index.js                      # Imports backend/app.js
+│   └── package.json                  # Lambda dependencies
 │
 ├── docs/                             # Comprehensive documentation
 │   ├── ARCHITECTURE.md               # System design
 │   ├── AI.md                         # AI methodology
-│   └── API.md                        # API reference
+│   ├── API.md                        # API reference
+│   ├── BUSINESS.md                   # Business strategy
+│   ├── CONTRIBUTING.md               # Contribution guidelines
+│   └── SECURITY.md                   # Security audit
+│
+├── infra/                            # Infrastructure specs
+│   └── dynamodb-tables.md            # DynamoDB table definitions
 │
 ├── assets/                           # Logos, screenshots, media
-├── infra/                            # Infrastructure specs
+│   ├── screenshots/                  # App screenshots
+│   └── demo/                         # Demo GIF + video
+│
 ├── docker-compose.yml                # Multi-service orchestration
-├── render.yaml                        # Render Blueprint config
-├── DEPLOYMENT.md                      # Production deployment guide
-└── .env.example                       # Environment variable template
+├── render.yaml                       # Render Blueprint config
+├── vercel.json                       # Root Vercel serverless config
+├── DEPLOYMENT.md                     # Production deployment guide
+└── .env.example                      # Environment variable template
 ```
 
 <br>
@@ -1162,12 +1163,12 @@ by the Free Software Foundation, either version 3 of the License, or
     <a href="https://mediflow-ai-olive.vercel.app"><img src="https://img.shields.io/badge/Live_Demo-Mediflow_AI-000?style=flat-square&logo=vercel" alt="Demo"></a>
     <a href="LICENSE"><img src="https://img.shields.io/badge/License-AGPLv3-8A2BE2?style=flat-square" alt="License"></a>
     <a href="https://github.com/tejshveeyerpurwad-hash/mediflow-ai-agent"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github" alt="GitHub"></a>
-    <a href="docs/"><img src="https://img.shields.io/badge/Docs-6366f1?style=flat-square&logo=readthedocs" alt="Docs"></a>
+    <a href="docs/ARCHITECTURE.md"><img src="https://img.shields.io/badge/Docs-6366f1?style=flat-square&logo=readthedocs" alt="Docs"></a>
     <a href="https://github.com/tejshveeyerpurwad-hash/mediflow-ai-agent/issues"><img src="https://img.shields.io/badge/Issues-ef4444?style=flat-square&logo=githubissues" alt="Issues"></a>
   </p>
 
   <p>
-    <strong>Built with ❤️ by Tejshvini Yerpurwad</strong><br>
+    <strong>Built by Tejshvini Yerpurwad</strong><br>
     <em>AI for Rural Healthcare &bull; MediFlow AI</em>
   </p>
 
